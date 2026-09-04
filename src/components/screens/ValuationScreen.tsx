@@ -128,6 +128,15 @@ export const ValuationScreen: React.FC = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => openSheet('breakdown')}
+            style={[styles.outlineBtn, { borderColor: t.tint }]}>
+            <Text style={[styles.outlineBtnText, { color: t.tint }]}>
+              View arithmetic & share with CPA
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
             activeOpacity={0.6}
             onPress={() => pushScreen('options')}
             style={styles.secondaryBtn}>
@@ -233,6 +242,18 @@ const styles = StyleSheet.create({
   primaryBtnText: {
     color: '#FFFFFF',
     fontSize: 17,
+    fontWeight: '600'
+  },
+  outlineBtn: {
+    height: 48,
+    borderRadius: 14,
+    borderWidth: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
+  },
+  outlineBtnText: {
+    fontSize: 15,
     fontWeight: '600'
   },
   secondaryBtn: {

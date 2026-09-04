@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   RefreshControl
 } from 'react-native';
-import { SlidersHorizontal, Compass, Layers, RotateCw, ChevronRight, Activity } from 'lucide-react-native';
+import { SlidersHorizontal, Compass, Layers, RotateCw, ChevronRight, Activity, Database } from 'lucide-react-native';
 import { useOwnCura } from '@/constants/OwnCuraContext';
 import { AppTheme } from '@/constants/themeTokens';
 import { money, OC_CLINICS } from '@/constants/owncuraData';
@@ -109,13 +109,21 @@ export const HomeScreen: React.FC = () => {
         </View>
       </TouchableOpacity>
 
-      {/* REFRESH SUBTITLE */}
+      {/* PUBLIC DATA LINEAGE / METHODOLOGY BANNER */}
       <TouchableOpacity
-        onPress={onRefresh}
-        style={styles.refreshIndicator}
-        activeOpacity={0.6}>
-        <RotateCw size={12} color={t.ter} />
-        <Text style={[styles.refreshText, { color: t.ter }]}>Updated just now</Text>
+        activeOpacity={0.7}
+        onPress={() => openSheet('breakdown')}
+        style={[styles.lineageBanner, { backgroundColor: t.card, borderColor: t.sep }, t.shadow]}>
+        <View style={styles.lineageHeader}>
+          <View style={[styles.lineageBadge, { backgroundColor: 'rgba(17,101,91,0.12)' }]}>
+            <Database size={11} color={t.tint} />
+            <Text style={[styles.lineageBadgeText, { color: t.tint }]}>HYBRID ENGINE</Text>
+          </View>
+          <Text style={[styles.lineageMathLink, { color: t.tint }]}>View Arithmetic →</Text>
+        </View>
+        <Text style={[styles.lineageBody, { color: t.sec }]}>
+          Baseline computed from CMS Medicare Part B data (2024–2025) & Texas Medical Board records. Refined with owner EBITDA.
+        </Text>
       </TouchableOpacity>
 
       {/* QUICK ACTIONS ROW */}
@@ -307,6 +315,40 @@ const styles = StyleSheet.create({
   refreshText: {
     fontSize: 12,
     fontWeight: '500'
+  },
+  lineageBanner: {
+    borderRadius: 13,
+    padding: 13,
+    marginTop: 10,
+    marginBottom: 6,
+    borderWidth: StyleSheet.hairlineWidth
+  },
+  lineageHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6
+  },
+  lineageBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: 6
+  },
+  lineageBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.5
+  },
+  lineageMathLink: {
+    fontSize: 12,
+    fontWeight: '600'
+  },
+  lineageBody: {
+    fontSize: 12.5,
+    lineHeight: 17
   },
   actionRow: {
     flexDirection: 'row',

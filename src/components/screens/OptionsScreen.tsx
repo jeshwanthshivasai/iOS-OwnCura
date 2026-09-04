@@ -19,41 +19,41 @@ export const OptionsScreen: React.FC = () => {
     {
       id: 'independent',
       title: 'Grow independently',
-      tag: 'No equity change',
+      tag: 'Nov 15 Cohort · 100% Equity',
       icon: Zap,
       iconBg: t.tint,
-      body: 'Keep full ownership and license the agent stack once it clears our own clinics. Scheduling, intake, coding and claims follow-up run themselves.',
-      cta: 'Join the November cohort',
-      status: 'November cohort · waitlisted'
+      body: "Keep 100% equity. License the verified AI agent stack (intake, coding review, claims) deploying across Roots Health's 9 clinics on November 15.",
+      cta: 'Join the Nov 15 cohort waitlist',
+      status: 'November 15 cohort · waitlisted'
     },
     {
       id: 'operational',
       title: 'Bring in operational help',
-      tag: 'Management services',
+      tag: 'MSO Services · Keep Ownership',
       icon: Settings,
       iconBg: t.tint,
-      body: 'Roots Health takes on billing, staffing, payer contracting and compliance under an MSO agreement. You stay the clinical owner.',
-      cta: 'See the scope of work',
+      body: 'Roots Health takes on billing, staffing, payer contracting, and compliance under an MSO agreement. You retain clinical sovereignty.',
+      cta: 'See the MSO scope of work',
       status: 'Scope of work drafting'
     },
     {
       id: 'acquisition',
       title: 'Sell to Roots Health',
-      tag: 'Full or majority sale',
+      tag: 'Platform MSO · Zero Broker Fees',
       icon: Building,
       iconBg: '#FF9500',
-      body: 'A direct offer from the MSO that already runs nine pediatric and family practices in Texas and California. One counterparty, no broker.',
-      cta: 'Request an indicative offer',
+      body: 'Direct acquisition offer from the platform MSO that operates 9 clinics in Texas and California. No broker commissions, transparent valuation.',
+      cta: 'Review indicative offer',
       status: 'Indicative offer received'
     },
     {
       id: 'partners',
       title: 'Meet partner MSOs',
-      tag: 'Multiple bidders',
+      tag: 'Plural Bidders · Closed Bids',
       icon: Handshake,
       iconBg: '#FF9500',
-      body: 'We introduce you to vetted acquirers across Texas and California, including our competitors. You are named only to the ones you approve.',
-      cta: 'Review the acquirer list',
+      body: 'Confidential introductions to vetted acquirers, including Roots Health competitors across TX & CA. You are named only to parties you approve.',
+      cta: 'Review vetted acquirers',
       status: '3 acquirers matched'
     }
   ];

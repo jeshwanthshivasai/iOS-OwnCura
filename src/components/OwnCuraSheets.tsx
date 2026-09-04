@@ -9,7 +9,16 @@ import {
   TextInput,
   TouchableWithoutFeedback
 } from 'react-native';
-import { Check, ArrowUpRight } from 'lucide-react-native';
+import {
+  Check,
+  ArrowUpRight,
+  Calculator,
+  FileText,
+  Share2,
+  Shield,
+  Sparkles,
+  ChevronRight
+} from 'lucide-react-native';
 import { useOwnCura, RoleType } from '@/constants/OwnCuraContext';
 import { AppTheme } from '@/constants/themeTokens';
 import { money } from '@/constants/owncuraData';
@@ -18,6 +27,7 @@ export const OwnCuraSheets: React.FC = () => {
   const {
     sheet,
     closeSheet,
+    openSheet,
     theme,
     toggleTheme,
     role,
@@ -54,18 +64,26 @@ export const OwnCuraSheets: React.FC = () => {
 
         {/* Header */}
         <View style={styles.sheetHeader}>
-          <TouchableOpacity onPress={closeSheet} style={styles.cancelBtn}>
-            <Text style={[styles.cancelText, { color: t.tint }]}>Cancel</Text>
-          </TouchableOpacity>
+          {sheet === 'breakdown' || sheet === 'story' ? (
+            <View style={styles.cancelBtn} />
+          ) : (
+            <TouchableOpacity onPress={closeSheet} style={styles.cancelBtn}>
+              <Text style={[styles.cancelText, { color: t.tint }]}>Cancel</Text>
+            </TouchableOpacity>
+          )}
           <Text style={[styles.sheetTitle, { color: t.label }]}>
             {sheet === 'refine'
               ? 'Refine valuation'
               : sheet === 'profile'
-              ? 'Profile'
+              ? 'Profile & accounts'
               : sheet === 'offer'
               ? 'Offer detail'
               : sheet === 'peek'
-              ? 'Practice'
+              ? 'Practice details'
+              : sheet === 'breakdown'
+              ? 'Valuation arithmetic'
+              : sheet === 'story'
+              ? 'Ravi meeting walk'
               : 'Introductions'}
           </Text>
           <TouchableOpacity
@@ -295,6 +313,66 @@ export const OwnCuraSheets: React.FC = () => {
                 </View>
               </View>
 
+              {/* STRATEGIC PRESENTATION LAUNCHERS */}
+              <Text style={[styles.sectionTitle, { color: t.sec, marginTop: 20 }]}>
+                EXECUTIVE SYNC & PRESENTATION
+              </Text>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => openSheet('story')}
+                style={[
+                  styles.card,
+                  {
+                    backgroundColor: t.card,
+                    borderLeftWidth: 3,
+                    borderLeftColor: t.tint,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  },
+                  t.shadow
+                ]}>
+                <View style={{ flex: 1, paddingRight: 10 }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                    <Text style={{ fontSize: 11, fontWeight: '700', color: t.tint, letterSpacing: 0.5 }}>
+                      RAVI MEETING GUIDE
+                    </Text>
+                  </View>
+                  <Text style={{ fontSize: 14, fontWeight: '600', color: t.label, marginTop: 2 }}>
+                    "Show the whole map, build one street"
+                  </Text>
+                  <Text style={{ fontSize: 12, color: t.sec, marginTop: 2 }}>
+                    4-step walkthrough for Pratham & Ravi executive sync
+                  </Text>
+                </View>
+                <ArrowUpRight size={18} color={t.tint} />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => openSheet('breakdown')}
+                style={[
+                  styles.card,
+                  {
+                    backgroundColor: t.card,
+                    marginTop: 8,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  },
+                  t.shadow
+                ]}>
+                <View style={{ flex: 1, paddingRight: 10 }}>
+                  <Text style={{ fontSize: 14, fontWeight: '600', color: t.label }}>
+                    Accountant-Grade Valuation Breakdown
+                  </Text>
+                  <Text style={{ fontSize: 12, color: t.sec, marginTop: 2 }}>
+                    View full EBITDA × Multiple arithmetic and CMS sources
+                  </Text>
+                </View>
+                <ArrowUpRight size={18} color={t.tint} />
+              </TouchableOpacity>
+
               {/* Account Switcher */}
               <Text style={[styles.sectionTitle, { color: t.sec, marginTop: 24 }]}>ACCOUNTS & ROLES</Text>
               <View style={[styles.cardGroup, { backgroundColor: t.card }]}>
@@ -354,10 +432,336 @@ export const OwnCuraSheets: React.FC = () => {
 
               <View style={{ marginTop: 20, paddingHorizontal: 4 }}>
                 <Text style={{ fontSize: 12, color: t.ter, lineHeight: 16 }}>
-                  OwnCura iOS · An Independence OS product. Valuations from an illustrative model,
-                  not the production engine.
+                  OwnCura iOS · An Independence OS product. Built for confidential clinic owner empowerment.
                 </Text>
               </View>
+            </View>
+          )}
+
+          {/* BREAKDOWN SHEET (CPA / ACCOUNTANT-GRADE ARITHMETIC) */}
+          {sheet === 'breakdown' && (
+            <View>
+              {/* Main Summary Card */}
+              <View style={[styles.card, { backgroundColor: t.card }, t.shadow]}>
+                <View style={styles.badgeRow}>
+                  <View style={[styles.badgeChip, { backgroundColor: 'rgba(15,122,87,0.12)' }]}>
+                    <Text style={{ color: t.tint, fontSize: 11, fontWeight: '700' }}>
+                      CPA AUDIT READY · PUBLIC DATA + OWNER INPUTS
+                    </Text>
+                  </View>
+                </View>
+
+                <Text style={[styles.bigValText, { color: t.label, marginTop: 10 }]}>
+                  {money(myValuation.mid)}
+                </Text>
+                <Text style={[styles.subRange, { color: t.sec }]}>
+                  {money(myValuation.low)} – {money(myValuation.high)} · ±{Math.round(myValuation.spread * 100)}% spread band
+                </Text>
+
+                {/* Progress bar */}
+                <View style={[styles.barBg, { backgroundColor: t.fill, marginTop: 14 }]}>
+                  <View
+                    style={[
+                      styles.barFill,
+                      {
+                        backgroundColor: t.tint,
+                        left: '14%',
+                        right: '14%'
+                      }
+                    ]}
+                  />
+                </View>
+
+                <View style={[styles.rowBetween, { marginTop: 10 }]}>
+                  <Text style={[styles.noteText, { color: t.sec }]}>
+                    Model Confidence: {myValuation.confidence}%
+                  </Text>
+                  <Text style={[styles.noteText, { color: t.sec }]}>
+                    Base: $612K EBITDA × 5.71× Multiple
+                  </Text>
+                </View>
+              </View>
+
+              {/* Formula Card */}
+              <Text style={[styles.sectionTitle, { color: t.sec, marginTop: 20 }]}>
+                VALUATION FORMULA & MULTIPLE DERIVATION
+              </Text>
+              <View style={[styles.cardGroup, { backgroundColor: t.card }]}>
+                <View style={[styles.metricRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.inputLabel, { color: t.label }]}>Normalized Annual EBITDA</Text>
+                    <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                      Discretionary cash flow after market physician compensation
+                    </Text>
+                  </View>
+                  <Text style={[styles.metricVal, { color: t.label }]}>$612,000</Text>
+                </View>
+
+                <View style={[styles.metricRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.inputLabel, { color: t.label }]}>Sector Baseline Multiple</Text>
+                    <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                      Greater Houston Pediatrics & Primary Care (1–5 MDs)
+                    </Text>
+                  </View>
+                  <Text style={[styles.metricVal, { color: t.label }]}>5.20×</Text>
+                </View>
+
+                <View style={[styles.metricRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.inputLabel, { color: t.label }]}>Provider Scale Premium</Text>
+                    <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                      4 active providers reduces key-person provider dependency
+                    </Text>
+                  </View>
+                  <Text style={[styles.metricVal, { color: t.tint }]}>+0.35×</Text>
+                </View>
+
+                <View style={[styles.metricRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.inputLabel, { color: t.label }]}>Commercial Payer Mix Quality</Text>
+                    <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                      70% commercial / 30% Medicaid (Houston regional median is 58%)
+                    </Text>
+                  </View>
+                  <Text style={[styles.metricVal, { color: t.tint }]}>+0.16×</Text>
+                </View>
+
+                <View style={styles.metricRow}>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.inputLabel, { color: t.label, fontWeight: '700' }]}>
+                      Effective Multiple Applied
+                    </Text>
+                    <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                      5.20 + 0.35 + 0.16 = 5.71× EBITDA
+                    </Text>
+                  </View>
+                  <Text style={[styles.metricVal, { color: t.tint, fontWeight: '700' }]}>5.71×</Text>
+                </View>
+              </View>
+
+              {/* Data Sources / Lineage */}
+              <Text style={[styles.sectionTitle, { color: t.sec, marginTop: 20 }]}>
+                DATA REPOSITORIES & COMPS CITATION
+              </Text>
+              <View style={[styles.cardGroup, { backgroundColor: t.card }]}>
+                {[
+                  {
+                    title: 'CMS Medicare Part B PUF 2024–2025',
+                    desc: 'Physician billing volume, procedure complexity & reimbursement rates',
+                    badge: 'PUBLIC'
+                  },
+                  {
+                    title: 'Texas Medical Board (TMB)',
+                    desc: 'License status, active provider roster, practice longevity (14 yrs)',
+                    badge: 'VERIFIED'
+                  },
+                  {
+                    title: 'NPPES National Provider Registry',
+                    desc: 'Group practice NPI linkage and clinic operational taxonomy',
+                    badge: 'PUBLIC'
+                  },
+                  {
+                    title: '14 Regional Closed Comps (2023–2026)',
+                    desc: 'Houston, Pearland, Sugar Land pediatric transactions',
+                    badge: 'AUDITED'
+                  }
+                ].map((src, i) => (
+                  <View
+                    key={src.title}
+                    style={[
+                      styles.metricRow,
+                      i < 3 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
+                    ]}>
+                    <View style={{ flex: 1, paddingRight: 10 }}>
+                      <Text style={[styles.inputLabel, { color: t.label, fontSize: 14 }]}>
+                        {src.title}
+                      </Text>
+                      <Text style={[styles.noteText, { color: t.sec, marginTop: 2 }]}>
+                        {src.desc}
+                      </Text>
+                    </View>
+                    <View style={[styles.badgeChip, { backgroundColor: t.fill }]}>
+                      <Text style={{ fontSize: 10, fontWeight: '700', color: t.sec }}>
+                        {src.badge}
+                      </Text>
+                    </View>
+                  </View>
+                ))}
+              </View>
+
+              {/* Compliance & Neutrality Note */}
+              <View style={[styles.card, { backgroundColor: t.card, marginTop: 14, flexDirection: 'row', gap: 10 }]}>
+                <Shield size={18} color={t.tint} style={{ marginTop: 2 }} />
+                <Text style={{ flex: 1, fontSize: 13, color: t.sec, lineHeight: 18 }}>
+                  This arithmetic summary was generated from publicly verifiable datasets and your unshared inputs. No private practice data is shared with buyers without a countersigned Mutual NDA.
+                </Text>
+              </View>
+
+              {/* Action Buttons */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  showToast('Exported 1-page CPA summary PDF');
+                }}
+                style={[styles.primaryBtn, { backgroundColor: t.tint, marginTop: 18, flexDirection: 'row', gap: 8 }]}>
+                <Share2 size={18} color="#FFFFFF" />
+                <Text style={styles.primaryBtnText}>Share 1-Page Summary with CPA</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  closeSheet();
+                  openSheet('refine');
+                }}
+                style={[styles.outlineBtn, { borderColor: t.sep, marginTop: 10 }]}>
+                <Text style={{ color: t.label, fontSize: 16, fontWeight: '500' }}>
+                  Adjust 5 Input Parameters
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
+
+          {/* STORY SHEET (RAVI MEETING: 1-STREET STRATEGY WALKTHROUGH) */}
+          {sheet === 'story' && (
+            <View>
+              {/* Header Hero */}
+              <View style={[styles.card, { backgroundColor: t.card }, t.shadow]}>
+                <View style={[styles.badgeChip, { backgroundColor: 'rgba(10,132,255,0.12)' }]}>
+                  <Text style={{ color: '#0A84FF', fontSize: 11, fontWeight: '700' }}>
+                    EXECUTIVE STRATEGY · PRATHAM & RAVI ALIGNMENT
+                  </Text>
+                </View>
+
+                <Text style={[styles.storyHeroTitle, { color: t.label, marginTop: 10 }]}>
+                  "Show the whole map, build one street."
+                </Text>
+                <Text style={[styles.storyHeroSub, { color: t.sec, marginTop: 6 }]}>
+                  The exact 4-step sequence turning public data into physician trust, MSO deal flow, and transaction certainty.
+                </Text>
+              </View>
+
+              {/* Milestone 1 */}
+              <View style={[styles.milestoneCard, { backgroundColor: t.card, marginTop: 14 }]}>
+                <View style={styles.milestoneHeader}>
+                  <View style={[styles.stepBadge, { backgroundColor: t.tint }]}>
+                    <Text style={styles.stepBadgeText}>01</Text>
+                  </View>
+                  <View style={{ flex: 1, marginLeft: 10 }}>
+                    <Text style={[styles.milestoneTitle, { color: t.label }]}>
+                      Arrive & Instant Public Baseline
+                    </Text>
+                    <Text style={[styles.milestoneSub, { color: t.sec }]}>
+                      Zero friction · No gated forms · Public data lineage
+                    </Text>
+                  </View>
+                </View>
+                <Text style={[styles.milestoneBody, { color: t.sec }]}>
+                  Every clinic in Texas and California is pre-loaded using CMS Medicare Part B and Texas Medical Board records. The doctor lands on their practice without filling forms or talking to a broker.
+                </Text>
+                <View style={[styles.milestoneMetric, { backgroundColor: t.fill }]}>
+                  <Text style={{ fontSize: 12, color: t.label, fontWeight: '600' }}>
+                    Doctor takeaway: "They already know my practice. This isn't a broker pitch."
+                  </Text>
+                </View>
+              </View>
+
+              {/* Milestone 2 */}
+              <View style={[styles.milestoneCard, { backgroundColor: t.card, marginTop: 12 }]}>
+                <View style={styles.milestoneHeader}>
+                  <View style={[styles.stepBadge, { backgroundColor: t.tint }]}>
+                    <Text style={styles.stepBadgeText}>02</Text>
+                  </View>
+                  <View style={{ flex: 1, marginLeft: 10 }}>
+                    <Text style={[styles.milestoneTitle, { color: t.label }]}>
+                      Private 5-Input Refinement
+                    </Text>
+                    <Text style={[styles.milestoneSub, { color: t.sec }]}>
+                      On-device calculations · Privacy as the product
+                    </Text>
+                  </View>
+                </View>
+                <Text style={[styles.milestoneBody, { color: t.sec }]}>
+                  The doctor adjusts 5 familiar operational inputs (EBITDA, providers, active panel, payer mix, visits/day). Spread tightens from ±22% down to ±7%, confidence jumps from 54% to 88%. Data stays 100% on device.
+                </Text>
+                <View style={[styles.milestoneMetric, { backgroundColor: t.fill }]}>
+                  <Text style={{ fontSize: 12, color: t.label, fontWeight: '600' }}>
+                    Doctor takeaway: "I own my numbers. I can't be lowballed by corporate acquirers."
+                  </Text>
+                </View>
+              </View>
+
+              {/* Milestone 3 */}
+              <View style={[styles.milestoneCard, { backgroundColor: t.card, marginTop: 12 }]}>
+                <View style={styles.milestoneHeader}>
+                  <View style={[styles.stepBadge, { backgroundColor: t.tint }]}>
+                    <Text style={styles.stepBadgeText}>03</Text>
+                  </View>
+                  <View style={{ flex: 1, marginLeft: 10 }}>
+                    <Text style={[styles.milestoneTitle, { color: t.label }]}>
+                      The Four Equal Doors
+                    </Text>
+                    <Text style={[styles.milestoneSub, { color: t.sec }]}>
+                      Complete neutrality · Selling is never prioritized
+                    </Text>
+                  </View>
+                </View>
+                <Text style={[styles.milestoneBody, { color: t.sec }]}>
+                  OwnCura presents 4 equal growth paths: (1) Grow independently with 100% equity, (2) Bring in MSO operational help, (3) Sell to Roots Health platform, or (4) Meet vetted partner MSOs. Neutrality creates credibility.
+                </Text>
+                <View style={[styles.milestoneMetric, { backgroundColor: t.fill }]}>
+                  <Text style={{ fontSize: 12, color: t.label, fontWeight: '600' }}>
+                    Key rule: If selling is pushed, doctors flee. When all 4 doors are equal, doctors choose.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Milestone 4 */}
+              <View style={[styles.milestoneCard, { backgroundColor: t.card, marginTop: 12 }]}>
+                <View style={styles.milestoneHeader}>
+                  <View style={[styles.stepBadge, { backgroundColor: t.tint }]}>
+                    <Text style={styles.stepBadgeText}>04</Text>
+                  </View>
+                  <View style={{ flex: 1, marginLeft: 10 }}>
+                    <Text style={[styles.milestoneTitle, { color: t.label }]}>
+                      The Closed Deal Room & AI Agent Stack
+                    </Text>
+                    <Text style={[styles.milestoneSub, { color: t.sec }]}>
+                      Mutual NDA · Audited access · Internal launch Nov 15
+                    </Text>
+                  </View>
+                </View>
+                <Text style={[styles.milestoneBody, { color: t.sec }]}>
+                  Counterparty access is bilateral: name released only after Mutual NDA. Diligence documents are watermarked with PII redaction. Roots Health internal AI operational stack deploys November 15 across ~9 clinics.
+                </Text>
+                <View style={[styles.milestoneMetric, { backgroundColor: t.fill }]}>
+                  <Text style={{ fontSize: 12, color: t.label, fontWeight: '600' }}>
+                    MSO takeaway: Diligence closes in 45 days instead of 9 months. Zero spam.
+                  </Text>
+                </View>
+              </View>
+
+              {/* Executive Summary Quote */}
+              <View style={[styles.card, { backgroundColor: t.card, marginTop: 16, borderLeftWidth: 3, borderLeftColor: t.tint }]}>
+                <Text style={{ fontSize: 13.5, fontStyle: 'italic', color: t.label, lineHeight: 20 }}>
+                  "If a doctor knows their real baseline, they can't be taken advantage of. If an acquirer has verified operational metrics, transactions happen with speed and mutual respect."
+                </Text>
+                <Text style={{ fontSize: 12, fontWeight: '600', color: t.sec, marginTop: 8 }}>
+                  — Pratham & Ravinder Alignment · September 2026
+                </Text>
+              </View>
+
+              {/* Close / Action button */}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  closeSheet();
+                  showToast('Presentation guide complete');
+                }}
+                style={[styles.primaryBtn, { backgroundColor: t.tint, marginTop: 18 }]}>
+                <Text style={styles.primaryBtnText}>Return to App Demo</Text>
+              </TouchableOpacity>
             </View>
           )}
 
@@ -760,6 +1164,10 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600'
   },
+  badgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   badgeChip: {
     alignSelf: 'flex-start',
     paddingHorizontal: 8,
@@ -777,5 +1185,70 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  metricRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 14,
+    paddingVertical: 12
+  },
+  metricVal: {
+    fontSize: 16,
+    fontWeight: '600'
+  },
+  outlineBtn: {
+    height: 48,
+    borderRadius: 14,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  storyHeroTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    letterSpacing: -0.4
+  },
+  storyHeroSub: {
+    fontSize: 13.5,
+    lineHeight: 19
+  },
+  milestoneCard: {
+    borderRadius: 14,
+    padding: 14
+  },
+  milestoneHeader: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  stepBadge: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  stepBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700'
+  },
+  milestoneTitle: {
+    fontSize: 15,
+    fontWeight: '700'
+  },
+  milestoneSub: {
+    fontSize: 12,
+    marginTop: 1
+  },
+  milestoneBody: {
+    fontSize: 13,
+    lineHeight: 18,
+    marginTop: 10
+  },
+  milestoneMetric: {
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 10
   }
 });

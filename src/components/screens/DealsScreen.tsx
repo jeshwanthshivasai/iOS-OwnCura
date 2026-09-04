@@ -9,7 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform
 } from 'react-native';
-import { FileText, Send } from 'lucide-react-native';
+import { FileText, Send, ShieldCheck, Lock } from 'lucide-react-native';
 import { useOwnCura } from '@/constants/OwnCuraContext';
 import { AppTheme } from '@/constants/themeTokens';
 import { money } from '@/constants/owncuraData';
@@ -262,7 +262,23 @@ export const DealsScreen: React.FC = () => {
           {/* DOCUMENTS TAB */}
           {dealTab === 'docs' && (
             <View>
-              <View style={[styles.cardGroup, { backgroundColor: t.card }, t.shadow]}>
+              {/* DATA ROOM COMPLIANCE BANNER */}
+              <View style={[styles.ndaStatusBanner, { backgroundColor: t.card, borderColor: t.sep }, t.shadow]}>
+                <View style={styles.rowBetween}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                    <ShieldCheck size={16} color={t.tint} />
+                    <Text style={[styles.ndaBannerTitle, { color: t.label }]}>Mutual NDA Active</Text>
+                  </View>
+                  <View style={[styles.verifiedPill, { backgroundColor: 'rgba(17,101,91,0.12)' }]}>
+                    <Text style={[styles.verifiedPillText, { color: t.tint }]}>AUDITED</Text>
+                  </View>
+                </View>
+                <Text style={[styles.ndaBannerBody, { color: t.sec }]}>
+                  Countersigned by Gulf Coast Pediatric Partners on Sep 1, 2026. Staff names and patient PII remain automatically redacted.
+                </Text>
+              </View>
+
+              <View style={[styles.cardGroup, { backgroundColor: t.card, marginTop: 12 }, t.shadow]}>
                 {[
                   { name: 'Payer contract summary.pdf', meta: '1.2 MB · shared with 1 acquirer', state: 'Released', color: t.tint },
                   { name: 'Claims history 2024–2026.xlsx', meta: '4.8 MB · shared with 1 acquirer', state: 'Released', color: t.tint },
@@ -272,14 +288,28 @@ export const DealsScreen: React.FC = () => {
                 ].map((doc, idx, arr) => {
                   const isLast = idx === arr.length - 1;
                   return (
-                    <View
+                    <TouchableOpacity
                       key={doc.name}
+                      activeOpacity={0.7}
+                      onPress={() => {
+                        if (doc.state === 'Held') {
+                          showToast(`Released ${doc.name} to Gulf Coast under NDA`);
+                        } else if (doc.state === 'Requested') {
+                          showToast(`Approved access to ${doc.name}`);
+                        } else {
+                          showToast(`Opening encrypted preview of ${doc.name}`);
+                        }
+                      }}
                       style={[
                         styles.docRow,
                         !isLast && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
                       ]}>
                       <View style={[styles.docIconWrap, { backgroundColor: t.fill }]}>
-                        <FileText size={16} color={t.sec} />
+                        {doc.state === 'Held' ? (
+                          <Lock size={15} color={t.ter} />
+                        ) : (
+                          <FileText size={16} color={doc.color} />
+                        )}
                       </View>
                       <View style={{ flex: 1 }}>
                         <Text style={[styles.docName, { color: t.label }]}>{doc.name}</Text>
@@ -288,12 +318,12 @@ export const DealsScreen: React.FC = () => {
                       <Text style={{ fontSize: 12.5, color: doc.color, fontWeight: '600' }}>
                         {doc.state}
                       </Text>
-                    </View>
+                    </TouchableOpacity>
                   );
                 })}
               </View>
               <Text style={[styles.footerNote, { color: t.ter }]}>
-                Documents are released per counterparty. Nothing here is visible on the public map.
+                Documents are released per counterparty under NDA. Nothing here is visible on the public map.
               </Text>
             </View>
           )}
@@ -374,6 +404,30 @@ const styles = StyleSheet.create({
     marginTop: 14,
     paddingTop: 12,
     borderTopWidth: StyleSheet.hairlineWidth
+  },
+  ndaStatusBanner: {
+    borderRadius: 14,
+    padding: 14,
+    borderWidth: StyleSheet.hairlineWidth
+  },
+  ndaBannerTitle: {
+    fontSize: 14.5,
+    fontWeight: '700'
+  },
+  verifiedPill: {
+    paddingHorizontal: 7,
+    paddingVertical: 3,
+    borderRadius: 6
+  },
+  verifiedPillText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.5
+  },
+  ndaBannerBody: {
+    fontSize: 12.5,
+    lineHeight: 18,
+    marginTop: 8
   },
   docRow: {
     flexDirection: 'row',

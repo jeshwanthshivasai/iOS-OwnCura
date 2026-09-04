@@ -6,7 +6,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from 'react-native';
-import { ChevronRight, MapPin } from 'lucide-react-native';
+import { ChevronRight } from 'lucide-react-native';
 import { useOwnCura } from '@/constants/OwnCuraContext';
 import { AppTheme } from '@/constants/themeTokens';
 import {
@@ -15,6 +15,7 @@ import {
   clinicValuation,
   money
 } from '@/constants/owncuraData';
+import { OwnCuraMap } from '@/components/OwnCuraMap';
 
 export const ExploreScreen: React.FC = () => {
   const {
@@ -24,8 +25,7 @@ export const ExploreScreen: React.FC = () => {
     selectedMetro,
     setSelectedMetro,
     setSelectedClinicId,
-    openSheet,
-    pushScreen
+    openSheet
   } = useOwnCura();
   const t = AppTheme[theme];
 
@@ -44,163 +44,151 @@ export const ExploreScreen: React.FC = () => {
       style={[styles.container, { backgroundColor: t.bg }]}
       contentContainerStyle={styles.contentContainer}
       showsVerticalScrollIndicator={false}>
-      {/* SEGMENT FILTER */}
-      <View style={[styles.segmentContainer, { backgroundColor: t.segBg }]}>
-        {[
-          { id: 'all', label: 'All' },
-          { id: 'TX', label: 'Texas' },
-          { id: 'CA', label: 'California' }
-        ].map(seg => {
-          const isSelected = stateFilter === seg.id;
-          return (
-            <TouchableOpacity
-              key={seg.id}
-              onPress={() => {
-                setStateFilter(seg.id as any);
-                setSelectedMetro(null);
-              }}
-              style={[
-                styles.segmentItem,
-                isSelected && { backgroundColor: t.segOn, ...t.shadow }
-              ]}>
-              <Text
-                style={{
-                  color: t.label,
-                  fontWeight: isSelected ? '600' : '400',
-                  fontSize: 13
-                }}>
-                {seg.label}
-              </Text>
-            </TouchableOpacity>
-          );
-        })}
-      </View>
-
-      {/* MAP STYLIZED CANVAS */}
-      <View style={[styles.mapPlaceholder, { backgroundColor: t.card }, t.shadow]}>
-        <View style={styles.mapGrid}>
-          {filteredMetros.map(m => {
-            const isSelected = selectedMetro === m.id;
-            const count = OC_CLINICS.filter(c => c.metro === m.id).length;
+      {/* 1. TOP SEGMENT FILTER */}
+      <View style={styles.segmentWrapper}>
+        <View style={[styles.segmentContainer, { backgroundColor: t.segBg }]}>
+          {[
+            { id: 'all', label: 'All' },
+            { id: 'TX', label: 'Texas' },
+            { id: 'CA', label: 'California' }
+          ].map(seg => {
+            const isSelected = stateFilter === seg.id;
             return (
               <TouchableOpacity
-                key={m.id}
-                onPress={() => setSelectedMetro(isSelected ? null : m.id)}
+                key={seg.id}
+                onPress={() => {
+                  setStateFilter(seg.id as any);
+                  setSelectedMetro(null);
+                }}
                 style={[
-                  styles.mapPinCluster,
-                  {
-                    backgroundColor: isSelected ? t.tint : t.fill,
-                    borderColor: isSelected ? '#FFFFFF' : 'transparent'
-                  }
+                  styles.segmentItem,
+                  isSelected && { backgroundColor: t.segOn, ...t.shadow }
                 ]}>
-                <MapPin
-                  size={14}
-                  color={isSelected ? '#FFFFFF' : t.label}
-                />
                 <Text
                   style={{
-                    color: isSelected ? '#FFFFFF' : t.label,
-                    fontSize: 11,
-                    fontWeight: '600'
+                    color: t.label,
+                    fontWeight: isSelected ? '600' : '400',
+                    fontSize: 13
                   }}>
-                  {m.name.split(' ')[0]} ({count})
+                  {seg.label}
                 </Text>
               </TouchableOpacity>
             );
           })}
         </View>
-
-        <Text style={[styles.mapFooterText, { color: t.ter }]}>
-          Interactive Coverage · Texas & California Metros
-        </Text>
       </View>
 
-      {/* LEGEND ROW */}
-      <View style={styles.legendRow}>
-        <View style={styles.legendItem}>
-          <View style={[styles.dot, { backgroundColor: '#0A84FF' }]} />
-          <Text style={[styles.legendText, { color: t.sec }]}>Yours</Text>
-        </View>
-        <View style={styles.legendItem}>
-          <View style={[styles.dot, { backgroundColor: '#FF9500' }]} />
-          <Text style={[styles.legendText, { color: t.sec }]}>For sale</Text>
-        </View>
-        <View style={styles.legendItem}>
-          <View style={[styles.dot, { backgroundColor: t.tint }]} />
-          <Text style={[styles.legendText, { color: t.sec }]}>Roots Health</Text>
-        </View>
-        <View style={styles.legendItem}>
-          <View style={[styles.dot, { backgroundColor: '#8E8E93' }]} />
-          <Text style={[styles.legendText, { color: t.sec }]}>Not listed</Text>
+      {/* 2. REAL MAP (EDGE-TO-EDGE) WITH CLEAN VISUAL CLUSTERS */}
+      <OwnCuraMap
+        stateFilter={stateFilter}
+        onSelectState={s => {
+          setStateFilter(s);
+          setSelectedMetro(null);
+        }}
+        selectedMetro={selectedMetro}
+        onSelectMetro={setSelectedMetro}
+        onSelectClinic={id => {
+          setSelectedClinicId(id);
+          openSheet('peek');
+        }}
+      />
+
+      {/* 3. LEGEND ROW */}
+      <View style={styles.legendWrapper}>
+        <View style={styles.legendRow}>
+          <View style={styles.legendItem}>
+            <View style={[styles.dot, { backgroundColor: '#0A84FF' }]} />
+            <Text style={[styles.legendText, { color: t.sec }]}>Yours</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.dot, { backgroundColor: '#FF9500' }]} />
+            <Text style={[styles.legendText, { color: t.sec }]}>For sale</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.dot, { backgroundColor: '#0F7A57' }]} />
+            <Text style={[styles.legendText, { color: t.sec }]}>Roots Health</Text>
+          </View>
+          <View style={styles.legendItem}>
+            <View style={[styles.dot, { backgroundColor: '#8E8E93' }]} />
+            <Text style={[styles.legendText, { color: t.sec }]}>Not listed</Text>
+          </View>
         </View>
       </View>
 
-      {/* LIST HEADER */}
-      <View style={styles.sectionHeader}>
-        <Text style={[styles.sectionTitle, { color: t.sec }]}>
-          {selectedMetro ? `${activeMetro?.name.toUpperCase()} PRACTICES` : 'METROS'}
-        </Text>
-        {selectedMetro && (
-          <TouchableOpacity onPress={() => setSelectedMetro(null)}>
-            <Text style={{ color: t.tint, fontSize: 13, fontWeight: '500' }}>Show all</Text>
-          </TouchableOpacity>
-        )}
-      </View>
+      {/* 4. METROS / PRACTICES LIST SECTION */}
+      <View style={styles.listSection}>
+        <View style={styles.sectionHeader}>
+          <Text style={[styles.sectionTitle, { color: t.sec }]}>
+            {selectedMetro ? `${activeMetro?.name.toUpperCase()} PRACTICES` : 'METROS'}
+          </Text>
+          {selectedMetro && (
+            <TouchableOpacity onPress={() => setSelectedMetro(null)}>
+              <Text style={{ color: t.tint, fontSize: 13, fontWeight: '500' }}>Show all</Text>
+            </TouchableOpacity>
+          )}
+        </View>
 
-      {/* LIST CONTENT */}
-      <View style={[styles.cardGroup, { backgroundColor: t.card }, t.shadow]}>
-        {selectedMetro
-          ? clinicsInMetro.map((c, idx) => {
-              const val = clinicValuation(c);
-              return (
-                <TouchableOpacity
-                  key={c.id}
-                  activeOpacity={0.7}
-                  onPress={() => {
-                    setSelectedClinicId(c.id);
-                    openSheet('peek');
-                  }}
-                  style={[
-                    styles.listItem,
-                    idx < clinicsInMetro.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
-                  ]}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={[styles.itemTitle, { color: t.label }]}>{c.name}</Text>
-                    <Text style={[styles.itemSub, { color: t.sec }]}>
-                      {c.city}, {c.state} · {c.specialty}
-                    </Text>
-                  </View>
-                  <View style={{ alignItems: 'flex-end', marginRight: 6 }}>
-                    <Text style={[styles.itemValue, { color: t.label }]}>
+        <View style={[styles.groupedCard, { backgroundColor: t.card }, t.shadow]}>
+          {selectedMetro
+            ? clinicsInMetro.map((c, idx) => {
+                const val = clinicValuation(c);
+                const isLast = idx === clinicsInMetro.length - 1;
+                return (
+                  <TouchableOpacity
+                    key={c.id}
+                    activeOpacity={0.6}
+                    onPress={() => {
+                      setSelectedClinicId(c.id);
+                      openSheet('peek');
+                    }}
+                    style={[
+                      styles.rowItem,
+                      !isLast && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
+                    ]}>
+                    <View style={{ flex: 1, minWidth: 0, paddingRight: 10 }}>
+                      <Text style={[styles.rowName, { color: t.label }]} numberOfLines={1}>
+                        {c.name}
+                      </Text>
+                      <Text style={[styles.rowSub, { color: t.sec }]} numberOfLines={1}>
+                        {c.city}, {c.state} · {c.specialty} · {c.providers} providers{c.status === 'mine' ? ' · You' : ''}
+                      </Text>
+                    </View>
+                    <Text style={[styles.rowValue, { color: t.sec }]}>
                       {money(val.mid)}
                     </Text>
-                    <Text style={{ fontSize: 11, color: t.sec }}>mid est.</Text>
-                  </View>
-                  <ChevronRight size={17} color={t.ter} />
-                </TouchableOpacity>
-              );
-            })
-          : filteredMetros.map((m, idx) => {
-              const count = OC_CLINICS.filter(c => c.metro === m.id).length;
-              return (
-                <TouchableOpacity
-                  key={m.id}
-                  activeOpacity={0.7}
-                  onPress={() => setSelectedMetro(m.id)}
-                  style={[
-                    styles.listItem,
-                    idx < filteredMetros.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
-                  ]}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={[styles.itemTitle, { color: t.label }]}>{m.name}</Text>
-                    <Text style={[styles.itemSub, { color: t.sec }]}>
-                      {count} practices · {m.state}
+                    <ChevronRight size={16} color={t.ter} />
+                  </TouchableOpacity>
+                );
+              })
+            : filteredMetros.map((m, idx) => {
+                const set = OC_CLINICS.filter(c => c.metro === m.id);
+                const vals = set.map(c => clinicValuation(c).mid).sort((a, b) => a - b);
+                const medianVal = vals[Math.floor(vals.length / 2)] || 2200000;
+                const isLast = idx === filteredMetros.length - 1;
+
+                return (
+                  <TouchableOpacity
+                    key={m.id}
+                    activeOpacity={0.6}
+                    onPress={() => setSelectedMetro(m.id)}
+                    style={[
+                      styles.rowItem,
+                      !isLast && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
+                    ]}>
+                    <View style={{ flex: 1, minWidth: 0, paddingRight: 10 }}>
+                      <Text style={[styles.rowName, { color: t.label }]}>{m.name}</Text>
+                      <Text style={[styles.rowSub, { color: t.sec }]}>
+                        {set.length} practices · {m.state}
+                      </Text>
+                    </View>
+                    <Text style={[styles.rowValue, { color: t.sec }]}>
+                      {money(medianVal)}
                     </Text>
-                  </View>
-                  <ChevronRight size={17} color={t.ter} />
-                </TouchableOpacity>
-              );
-            })}
+                    <ChevronRight size={16} color={t.ter} />
+                  </TouchableOpacity>
+                );
+              })}
+        </View>
       </View>
     </ScrollView>
   );
@@ -211,15 +199,17 @@ const styles = StyleSheet.create({
     flex: 1
   },
   contentContainer: {
-    paddingHorizontal: 16,
-    paddingTop: 10,
+    paddingTop: 4,
     paddingBottom: 40
+  },
+  segmentWrapper: {
+    paddingHorizontal: 16,
+    paddingBottom: 12
   },
   segmentContainer: {
     flexDirection: 'row',
     borderRadius: 9,
-    padding: 2,
-    marginBottom: 12
+    padding: 2
   },
   segmentItem: {
     flex: 1,
@@ -228,37 +218,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 7
   },
-  mapPlaceholder: {
-    borderRadius: 16,
-    padding: 16,
-    minHeight: 180,
-    justifyContent: 'space-between'
-  },
-  mapGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginTop: 8
-  },
-  mapPinCluster: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 12,
-    borderWidth: 1
-  },
-  mapFooterText: {
-    fontSize: 11,
-    marginTop: 18,
-    textAlign: 'center'
+  legendWrapper: {
+    paddingHorizontal: 16,
+    paddingTop: 14
   },
   legendRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 6,
-    marginTop: 14
+    alignItems: 'center',
+    gap: 14,
+    flexWrap: 'wrap',
+    paddingHorizontal: 4
   },
   legendItem: {
     flexDirection: 'row',
@@ -273,39 +242,45 @@ const styles = StyleSheet.create({
   legendText: {
     fontSize: 12
   },
+  listSection: {
+    paddingHorizontal: 16,
+    paddingTop: 18
+  },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 22,
     marginBottom: 8,
     paddingHorizontal: 4
   },
   sectionTitle: {
-    fontSize: 12.5,
+    fontSize: 13,
     fontWeight: '600',
-    letterSpacing: 0.5
+    letterSpacing: 0.5,
+    textTransform: 'uppercase'
   },
-  cardGroup: {
-    borderRadius: 14,
+  groupedCard: {
+    borderRadius: 12,
     overflow: 'hidden'
   },
-  listItem: {
+  rowItem: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 13
+    paddingVertical: 12,
+    gap: 8
   },
-  itemTitle: {
+  rowName: {
     fontSize: 15,
     fontWeight: '500'
   },
-  itemSub: {
+  rowSub: {
     fontSize: 12.5,
     marginTop: 2
   },
-  itemValue: {
+  rowValue: {
     fontSize: 15,
-    fontWeight: '600'
+    fontWeight: '500',
+    fontVariant: ['tabular-nums']
   }
 });
