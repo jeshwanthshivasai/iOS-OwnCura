@@ -25,8 +25,8 @@ export const MainAppContainer: React.FC = () => {
   const currentView = stack.length > 0 ? stack[stack.length - 1] : activeTab;
   const isRoot = stack.length === 0;
 
-  let title = 'Home';
-  if (currentView === 'home') title = 'Home';
+  let title = 'OwnCura';
+  if (currentView === 'home') title = 'OwnCura';
   else if (currentView === 'valuation') title = 'Valuation';
   else if (currentView === 'explore') title = 'Explore';
   else if (currentView === 'options') title = 'Growth Options';
@@ -77,7 +77,9 @@ export const MainAppContainer: React.FC = () => {
 
       <View style={styles.screenWrapper}>{renderContent()}</View>
 
+      {/* Authentic iOS Bottom Tab Bar */}
       <OwnCuraTabBar />
+
       <OwnCuraSheets />
       <ToastBanner />
     </View>
@@ -86,9 +88,26 @@ export const MainAppContainer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    position: 'relative'
   },
   screenWrapper: {
     flex: 1
+  },
+  ambientOrbTop: {
+    position: 'absolute',
+    top: -60,
+    right: -40,
+    width: 260,
+    height: 260,
+    borderRadius: 130
+  },
+  ambientOrbBottom: {
+    position: 'absolute',
+    bottom: 40,
+    left: -60,
+    width: 280,
+    height: 280,
+    borderRadius: 140
   }
 });

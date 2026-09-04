@@ -129,7 +129,7 @@ export const OwnCuraSheets: React.FC = () => {
 
               {/* Form fields */}
               <View style={[styles.cardGroup, { backgroundColor: t.card, marginTop: 16 }]}>
-                <View style={[styles.inputRow, { borderBottomColor: t.sep }]}>
+                <View style={[styles.inputRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
                   <Text style={[styles.inputLabel, { color: t.label }]}>EBITDA</Text>
                   <View style={styles.inputWrapper}>
                     <Text style={{ color: t.sec, fontSize: 16 }}>$</Text>
@@ -144,7 +144,7 @@ export const OwnCuraSheets: React.FC = () => {
                   </View>
                 </View>
 
-                <View style={[styles.inputRow, { borderBottomColor: t.sep }]}>
+                <View style={[styles.inputRow, { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }]}>
                   <Text style={[styles.inputLabel, { color: t.label }]}>Providers</Text>
                   <TextInput
                     style={[styles.textInput, { color: t.label }]}
@@ -236,7 +236,10 @@ export const OwnCuraSheets: React.FC = () => {
                       key={f.label}
                       style={[
                         styles.factorRow,
-                        i < (myValuation.factors?.length || 0) - 1 && { borderBottomColor: t.sep }
+                        i < (myValuation.factors?.length || 0) - 1 && {
+                          borderBottomColor: t.sep,
+                          borderBottomWidth: StyleSheet.hairlineWidth
+                        }
                       ]}>
                       <View style={styles.rowBetween}>
                         <Text style={[styles.inputLabel, { color: t.label }]}>{f.label}</Text>
@@ -310,7 +313,7 @@ export const OwnCuraSheets: React.FC = () => {
                       }}
                       style={[
                         styles.roleRow,
-                        i < 2 && { borderBottomColor: t.sep }
+                        i < 2 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
                       ]}>
                       <View style={{ flex: 1 }}>
                         <Text style={[styles.inputLabel, { color: t.label }]}>{r.name}</Text>
@@ -664,8 +667,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 14,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 13
   },
   inputLabel: {
     fontSize: 16,
@@ -702,8 +704,7 @@ const styles = StyleSheet.create({
   },
   factorRow: {
     paddingHorizontal: 14,
-    paddingVertical: 12,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 12
   },
   resetBtn: {
     alignItems: 'center',
@@ -734,8 +735,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 14,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 14
   },
   themeRow: {
     flexDirection: 'row',

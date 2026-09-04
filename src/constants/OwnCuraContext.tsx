@@ -14,6 +14,7 @@ import {
 
 export type RoleType = 'owner' | 'team' | 'acquirer';
 export type ActiveTabType = 'home' | 'deals' | 'inbox' | 'portfolio' | 'clinicops' | 'digest' | 'practice';
+export type ScreenType = 'home' | 'valuation' | 'explore' | 'options' | 'deals' | 'inbox' | 'portfolio' | 'clinicops' | 'digest' | 'practice';
 export type SheetType = 'refine' | 'profile' | 'offer' | 'peek' | 'intros' | null;
 
 interface OwnCuraContextType {

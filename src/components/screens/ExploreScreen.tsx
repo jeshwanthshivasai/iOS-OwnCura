@@ -162,7 +162,7 @@ export const ExploreScreen: React.FC = () => {
                   }}
                   style={[
                     styles.listItem,
-                    idx < clinicsInMetro.length - 1 && { borderBottomColor: t.sep }
+                    idx < clinicsInMetro.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
                   ]}>
                   <View style={{ flex: 1 }}>
                     <Text style={[styles.itemTitle, { color: t.label }]}>{c.name}</Text>
@@ -189,7 +189,7 @@ export const ExploreScreen: React.FC = () => {
                   onPress={() => setSelectedMetro(m.id)}
                   style={[
                     styles.listItem,
-                    idx < filteredMetros.length - 1 && { borderBottomColor: t.sep }
+                    idx < filteredMetros.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
                   ]}>
                   <View style={{ flex: 1 }}>
                     <Text style={[styles.itemTitle, { color: t.label }]}>{m.name}</Text>
@@ -294,8 +294,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 13
   },
   itemTitle: {
     fontSize: 15,

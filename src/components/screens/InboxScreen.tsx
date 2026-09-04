@@ -106,7 +106,7 @@ export const InboxScreen: React.FC = () => {
             onPress={item.action}
             style={[
               styles.itemRow,
-              idx < filtered.length - 1 && { borderBottomColor: t.sep }
+              idx < filtered.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
             ]}>
             <View style={styles.dotContainer}>
               {item.unread && (
@@ -164,7 +164,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 14,
     paddingVertical: 14,
-    borderBottomWidth: StyleSheet.hairlineWidth,
     gap: 10
   },
   dotContainer: {

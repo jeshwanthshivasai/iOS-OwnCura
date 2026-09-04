@@ -60,7 +60,7 @@ export const ClinicOpsScreen: React.FC = () => {
             key={a.name}
             style={[
               styles.agentRow,
-              idx < agents.length - 1 && { borderBottomColor: t.sep }
+              idx < agents.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
             ]}>
             <View style={[styles.agentDot, { backgroundColor: a.dot }]} />
             <View style={{ flex: 1 }}>
@@ -147,7 +147,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 14,
     paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth,
     gap: 12
   },
   agentDot: {

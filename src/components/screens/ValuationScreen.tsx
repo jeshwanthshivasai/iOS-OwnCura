@@ -87,7 +87,7 @@ export const ValuationScreen: React.FC = () => {
             key={item.label}
             style={[
               styles.infoRow,
-              idx < arr.length - 1 && { borderBottomColor: t.sep }
+              idx < arr.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
             ]}>
             <Text style={[styles.rowLabel, { color: t.label }]}>{item.label}</Text>
             <Text style={[styles.rowVal, { color: t.sec }]}>{item.value}</Text>
@@ -105,7 +105,7 @@ export const ValuationScreen: React.FC = () => {
             key={item.label}
             style={[
               styles.infoRow,
-              idx < arr.length - 1 && { borderBottomColor: t.sep }
+              idx < arr.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
             ]}>
             <Text style={[styles.rowLabel, { color: t.label }]}>{item.label}</Text>
             <Text style={[styles.rowVal, { color: t.sec }]}>{item.value}</Text>
@@ -209,8 +209,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 13
   },
   rowLabel: {
     fontSize: 15,

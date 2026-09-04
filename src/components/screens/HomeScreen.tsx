@@ -185,25 +185,29 @@ export const HomeScreen: React.FC = () => {
               pushScreen('valuation');
             }
           }
-        ].map((item, index, arr) => (
-          <TouchableOpacity
-            key={item.title}
-            activeOpacity={0.7}
-            onPress={item.action}
-            style={[
-              styles.activityItem,
-              index < arr.length - 1 && { borderBottomColor: t.sep }
-            ]}>
-            <View style={[styles.activityDot, { backgroundColor: item.iconBg }]}>
-              <Activity size={15} color="#FFFFFF" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={[styles.activityTitle, { color: t.label }]}>{item.title}</Text>
-              <Text style={[styles.activitySub, { color: t.sec }]}>{item.sub}</Text>
-            </View>
-            <Text style={[styles.activityWhen, { color: t.ter }]}>{item.when}</Text>
-          </TouchableOpacity>
-        ))}
+        ].map((item, index, arr) => {
+          const isLast = index === arr.length - 1;
+          return (
+            <TouchableOpacity
+              key={item.title}
+              activeOpacity={0.7}
+              onPress={item.action}
+              style={[
+                styles.activityItem,
+                !isLast && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth },
+                isLast && { borderBottomWidth: 0 }
+              ]}>
+              <View style={[styles.activityDot, { backgroundColor: item.iconBg }]}>
+                <Activity size={15} color="#FFFFFF" />
+              </View>
+              <View style={styles.activityContent}>
+                <Text style={[styles.activityTitle, { color: t.label }]}>{item.title}</Text>
+                <Text style={[styles.activitySub, { color: t.sec }]}>{item.sub}</Text>
+              </View>
+              <Text style={[styles.activityWhen, { color: t.ter }]}>{item.when}</Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
 
       {/* AGENT STACK CARD */}
@@ -276,12 +280,13 @@ const styles = StyleSheet.create({
   metricsGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
     marginTop: 16,
     paddingTop: 14,
     borderTopWidth: StyleSheet.hairlineWidth
   },
   metricItem: {
-    flex: 1
+    alignItems: 'flex-start'
   },
   metricLabel: {
     fontSize: 11,
@@ -347,7 +352,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 14,
     paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth,
     gap: 12
   },
   activityDot: {

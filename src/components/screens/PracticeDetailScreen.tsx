@@ -83,7 +83,7 @@ export const PracticeDetailScreen: React.FC = () => {
             key={r.label}
             style={[
               styles.infoRow,
-              idx < rows.length - 1 && { borderBottomColor: t.sep }
+              idx < rows.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
             ]}>
             <Text style={[styles.infoLabel, { color: t.label }]}>{r.label}</Text>
             <Text style={[styles.infoVal, { color: t.sec }]}>{r.value}</Text>
@@ -173,8 +173,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 13
   },
   infoLabel: {
     fontSize: 15,

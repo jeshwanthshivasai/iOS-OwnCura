@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { ChevronLeft } from 'lucide-react-native';
 import { useOwnCura } from '@/constants/OwnCuraContext';
 import { AppTheme } from '@/constants/themeTokens';
@@ -27,40 +27,58 @@ export const OwnCuraNavBar: React.FC<OwnCuraNavBarProps> = ({
   const t = AppTheme[theme];
 
   const initials = role === 'owner' ? 'RS' : role === 'team' ? 'RH' : 'LS';
+  const isBrand = title === 'Home' || title === 'OwnCura';
 
   return (
     <View style={[styles.container, { backgroundColor: t.nav, borderBottomColor: t.navSep }]}>
-      <View style={styles.topRow}>
-        {showBack ? (
-          <TouchableOpacity style={styles.backBtn} onPress={onBack} activeOpacity={0.6}>
-            <ChevronLeft size={22} color={t.tint} strokeWidth={2.5} />
-            <Text style={[styles.backText, { color: t.tint }]}>{backLabel || 'Back'}</Text>
-          </TouchableOpacity>
-        ) : (
-          <View style={styles.placeholder} />
-        )}
-
-        <View style={styles.centerTitleContainer}>
-          {!largeTitle && <Text style={[styles.inlineTitle, { color: t.label }]}>{title}</Text>}
+      {largeTitle ? (
+        <View style={styles.largeTitleRow}>
+          <View style={styles.brandRow}>
+            <Image
+              source={require('@/assets/images/indoslogo.png')}
+              style={styles.brandLogo}
+              resizeMode="contain"
+            />
+            <Text style={[styles.brandTitleText, { color: t.label }]}>OwnCura</Text>
+          </View>
+          {showAvatar ? (
+            <TouchableOpacity
+              style={styles.avatarBtn}
+              onPress={onOpenProfile}
+              activeOpacity={0.7}>
+              <View style={[styles.avatarCircle, { backgroundColor: t.avatarBg }]}>
+                <Text style={[styles.avatarText, { color: t.avatarInk }]}>{initials}</Text>
+              </View>
+            </TouchableOpacity>
+          ) : null}
         </View>
+      ) : (
+        <View style={styles.topRow}>
+          {showBack ? (
+            <TouchableOpacity style={styles.backBtn} onPress={onBack} activeOpacity={0.6}>
+              <ChevronLeft size={22} color={t.tint} strokeWidth={2.5} />
+              <Text style={[styles.backText, { color: t.tint }]}>{backLabel || 'Back'}</Text>
+            </TouchableOpacity>
+          ) : (
+            <View style={styles.placeholder} />
+          )}
 
-        {showAvatar ? (
-          <TouchableOpacity
-            style={styles.avatarBtn}
-            onPress={onOpenProfile}
-            activeOpacity={0.7}>
-            <View style={[styles.avatarCircle, { backgroundColor: t.avatarBg }]}>
-              <Text style={[styles.avatarText, { color: t.avatarInk }]}>{initials}</Text>
-            </View>
-          </TouchableOpacity>
-        ) : (
-          <View style={styles.placeholder} />
-        )}
-      </View>
+          <View style={styles.centerTitleContainer}>
+            <Text style={[styles.inlineTitle, { color: t.label }]}>{title}</Text>
+          </View>
 
-      {largeTitle && (
-        <View style={styles.largeTitleContainer}>
-          <Text style={[styles.largeTitleText, { color: t.label }]}>{title}</Text>
+          {showAvatar ? (
+            <TouchableOpacity
+              style={styles.avatarBtn}
+              onPress={onOpenProfile}
+              activeOpacity={0.7}>
+              <View style={[styles.avatarCircle, { backgroundColor: t.avatarBg }]}>
+                <Text style={[styles.avatarText, { color: t.avatarInk }]}>{initials}</Text>
+              </View>
+            </TouchableOpacity>
+          ) : (
+            <View style={styles.placeholder} />
+          )}
         </View>
       )}
     </View>
@@ -122,15 +140,34 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700'
   },
-  largeTitleContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 10,
-    paddingTop: 4
+  largeTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 10
   },
   largeTitleText: {
     fontSize: 34,
     fontWeight: '700',
     letterSpacing: -0.8,
     lineHeight: 41
+  },
+  brandRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10
+  },
+  brandLogo: {
+    width: 32,
+    height: 32,
+    borderRadius: 7
+  },
+  brandTitleText: {
+    fontSize: 28,
+    fontWeight: '700',
+    letterSpacing: -0.6,
+    lineHeight: 34
   }
 });

@@ -92,7 +92,7 @@ export const PortfolioScreen: React.FC = () => {
               }}
               style={[
                 styles.clinicRow,
-                idx < owned.length - 1 && { borderBottomColor: t.sep }
+                idx < owned.length - 1 && { borderBottomColor: t.sep, borderBottomWidth: StyleSheet.hairlineWidth }
               ]}>
               <View style={{ flex: 1 }}>
                 <Text style={[styles.clinicName, { color: t.label }]}>{c.name}</Text>
@@ -203,8 +203,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
-    paddingVertical: 13,
-    borderBottomWidth: StyleSheet.hairlineWidth
+    paddingVertical: 13
   },
   clinicName: {
     fontSize: 15,
