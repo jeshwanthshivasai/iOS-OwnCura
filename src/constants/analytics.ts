@@ -18,3 +18,25 @@ export function isPwaStandalone(): boolean {
     (window.navigator as any).standalone === true
   );
 }
+
+export function canInstallPwa(): boolean {
+  if (Platform.OS !== 'web' || typeof window === 'undefined') return false;
+  return !!(window as any).deferredPrompt && !isPwaStandalone();
+}
+
+export async function promptPwaInstall(): Promise<boolean> {
+  if (Platform.OS !== 'web' || typeof window === 'undefined') return false;
+  const promptEvent = (window as any).deferredPrompt;
+  if (!promptEvent) return false;
+
+  try {
+    await promptEvent.prompt();
+    const choiceResult = await promptEvent.userChoice;
+    trackEvent('pwa_install_choice', { outcome: choiceResult.outcome });
+    (window as any).deferredPrompt = null;
+    return choiceResult.outcome === 'accepted';
+  } catch (err) {
+    trackEvent('pwa_install_error', { error: String(err) });
+    return false;
+  }
+}

@@ -67,12 +67,48 @@ export default function Root({ children }: PropsWithChildren) {
         {/* PWA Settings */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#11655B" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="OwnCura" />
 
         {/* Apple Touch & PWA Standalone Mode */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="OwnCura" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+
+        {/* Early Service Worker & PWA Install Prompt Registration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.deferredPrompt = null;
+              window.addEventListener('beforeinstallprompt', function(e) {
+                e.preventDefault();
+                window.deferredPrompt = e;
+                window.dispatchEvent(new CustomEvent('pwa-installable'));
+                console.log('[PWA] beforeinstallprompt captured');
+              });
+              window.addEventListener('appinstalled', function() {
+                window.deferredPrompt = null;
+                console.log('[PWA] App successfully installed');
+              });
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                    .then(function(reg) {
+                      console.log('[PWA] Service Worker registered with scope:', reg.scope);
+                    })
+                    .catch(function(err) {
+                      console.warn('[PWA] Service Worker registration failed:', err);
+                    });
+                });
+              }
+            `,
+          }}
+        />
 
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: customStyles }} />
