@@ -83,7 +83,7 @@ export const OwnCuraSheets: React.FC = () => {
               : sheet === 'breakdown'
               ? 'Valuation arithmetic'
               : sheet === 'story'
-              ? 'Ravi meeting walk'
+              ? 'Ravi-san meeting walk'
               : 'Introductions'}
           </Text>
           <TouchableOpacity
@@ -335,14 +335,14 @@ export const OwnCuraSheets: React.FC = () => {
                 <View style={{ flex: 1, paddingRight: 10 }}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                     <Text style={{ fontSize: 11, fontWeight: '700', color: t.tint, letterSpacing: 0.5 }}>
-                      RAVI MEETING GUIDE
+                      RAVI-SAN MEETING GUIDE
                     </Text>
                   </View>
                   <Text style={{ fontSize: 14, fontWeight: '600', color: t.label, marginTop: 2 }}>
                     "Show the whole map, build one street"
                   </Text>
                   <Text style={{ fontSize: 12, color: t.sec, marginTop: 2 }}>
-                    4-step walkthrough for Pratham & Ravi executive sync
+                    4-step walkthrough for Pratham & Ravi-san executive sync
                   </Text>
                 </View>
                 <ArrowUpRight size={18} color={t.tint} />
@@ -623,14 +623,14 @@ export const OwnCuraSheets: React.FC = () => {
             </View>
           )}
 
-          {/* STORY SHEET (RAVI MEETING: 1-STREET STRATEGY WALKTHROUGH) */}
+          {/* STORY SHEET (RAVI-SAN MEETING: 1-STREET STRATEGY WALKTHROUGH) */}
           {sheet === 'story' && (
             <View>
               {/* Header Hero */}
               <View style={[styles.card, { backgroundColor: t.card }, t.shadow]}>
                 <View style={[styles.badgeChip, { backgroundColor: 'rgba(10,132,255,0.12)' }]}>
                   <Text style={{ color: '#0A84FF', fontSize: 11, fontWeight: '700' }}>
-                    EXECUTIVE STRATEGY · PRATHAM & RAVI ALIGNMENT
+                    EXECUTIVE STRATEGY · PRATHAM & RAVI-SAN ALIGNMENT
                   </Text>
                 </View>
 
@@ -748,7 +748,7 @@ export const OwnCuraSheets: React.FC = () => {
                   "If a doctor knows their real baseline, they can't be taken advantage of. If an acquirer has verified operational metrics, transactions happen with speed and mutual respect."
                 </Text>
                 <Text style={{ fontSize: 12, fontWeight: '600', color: t.sec, marginTop: 8 }}>
-                  — Pratham & Ravinder Alignment · September 2026
+                  — Pratham & Ravinder-san Alignment · September 2026
                 </Text>
               </View>
 
