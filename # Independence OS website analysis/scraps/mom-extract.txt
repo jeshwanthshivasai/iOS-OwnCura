@@ -1,0 +1,379 @@
+&#9997;&#65039; Quick notes
+Meeting Sep 2, 2026 at 11:30 IST
+Sep 2, 2026
+Strategy discussions defined the OwnCura marketplace model via automated valuation tools and private equity growth tactics.
+Marketplace and business model
+• Oncura functions as a marketplace for independent medical practices, facilitating both the buying and selling of clinics.
+• Roots Health operates as a Management Services Organization (MSO) to handle administrative and operational strategies for acquired clinics.
+• Strategy includes partnering with external MSOs in Texas and California to scale marketplace liquidity rather than relying solely on internal assets.
+Valuation engine development
+• Developing a predictive valuation engine using public government data to estimate clinic worth without requiring initial user input.
+• Platform will allow owners to refine valuation estimates by providing specific operational metrics like EBITDA and employee counts.
+Strategic roadmap and GTM
+• Targeting November 15 to begin deploying AI agent stacks within existing Roots Health clinics.
+• Adopting a GTM strategy using curated email outreach for buyer engagement to prioritize privacy over open site browsing.
+• Operations currently focus on pediatric and family practice clinics within Texas and California.
+• Long-term goal is to operate as a private equity entity by acquiring clinics, optimizing operations with AI, and demonstrating profit for future investors.
+Compliance and branding
+• Confirmed CPOM compliance, as clinical ownership is maintained by a practicing physician.
+• Official platform name is "Oncura"; "Castle" was identified as a discontinued internal conceptual metaphor.
+Next steps
+• [Pratham Singh] Share Documentation: Send the document detailing the Oncura or Open Door origin and core concepts to Jeshwanth.
+• [Jeshwanth Shiva Sai] Confirm Meeting Availability: Check the personal calendar and communicate potential availability for the next team meeting to Pratham.
+• [Jeshwanth Shiva Sai] Research Concepts: Investigate the operations and definitions of Medical Service Organizations and the Corporate Practice of Medicine.
+• [Jeshwanth Shiva Sai] Visualize MVP: Prepare sketches or design documents to illustrate the core components of the Minimum Viable Product.
+Want to see more? View the full notesTip: You can always access your full notes from the left sidebar.
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+&#128221; Full notes
+Sep 2, 2026
+Meeting Sep 2, 2026 at 11:30 IST
+Meeting records Transcript
+Summary
+Strategy discussions defined the OwnCura marketplace model via automated valuation tools and private equity growth tactics.Defining Platform Market StrategyThe platform functions as a Management Services Organization to facilitate clinic growth. Marketplace expansion targets external Management Services Organizations across California and Texas to ensure buyer diversity.Automated Clinic Valuation LogicA major decision established an automated valuation engine using public data to estimate prices for clinics. This model predicts valuation ranges upfront without requiring initial owner input.Finalizing Product Roadmap VisionThe marketplace, officially named OwnCura, adopts a private equity model to deploy AI agent stacks. Strategic prioritization favors valuation engine development over secondary educational and recruitment features.
+Decisions
+Aligned
+• Hybrid valuation engine approach confirmed The valuation engine will generate estimates based on available public data while allowing clinic owners to input additional specific business metrics for precise valuations.
+• Marketplace officially named oncura The name of the marketplace platform is finalized as oncura.
+• AI tools deployment scheduled The deployment of the AI tools within the company's own clinics is scheduled for November 15th.
+Next steps
+• [Pratham Singh] Share Documentation: Send the document detailing the Oncura or Open Door origin and core concepts to Jeshwanth.
+• [Jeshwanth Shiva Sai] Confirm Meeting Availability: Check the personal calendar and communicate potential availability for the next team meeting to Pratham.
+• [Jeshwanth Shiva Sai] Research Concepts: Investigate the operations and definitions of Medical Service Organizations and the Corporate Practice of Medicine.
+• [Jeshwanth Shiva Sai] Visualize MVP: Prepare sketches or design documents to illustrate the core components of the Minimum Viable Product.
+Details
+• Meeting Context and Logistics: Pratham Singh joined the meeting from their car while traveling to another meeting. They noted that Ravi was in Houston, where the local time was around 12:00 a.m. or 1:00 a.m., meaning Ravi could not participate. Jeshwanth Shiva Sai shared their screen to present points compiled over the week regarding financial agendas, the function of the marketplace, and understandings derived from internal documentation (00:08:56).
+• Company Relationships and MSO Operations: Jeshwanth Shiva Sai outlined their understanding that the platform helps independent practices and clinics in the United States grow their business by facilitating buying and selling options. Pratham Singh confirmed this and clarified that Roots Health acts as a parent or sister Management Services Organization (MSO). Pratham Singh explained the mechanism of an MSO, noting that it acquires clinics, manages their administration and operational sides, and determines methods to increase the EBITDA of a particular clinic (00:09:58).
+• Marketplace Expansion and Buyer Partnerships: Jeshwanth Shiva Sai noted that clinics might run independently or ask for help. Pratham Singh established that the strategy is not to rely solely on Roots Health as the exclusive buyer on the platform, because a marketplace requires multiple buyers to be viable. To build a functional marketplace, they plan to partner with external MSOs and competitors of Roots Health specifically within Texas and California (00:11:11). Jeshwanth Shiva Sai acknowledged using Roots Health primarily as an example for the baseline model (00:12:10).
+• Clinic Valuation Engine Mechanics: Jeshwanth Shiva Sai initially proposed determining a clinic's worth as a price range, rather than a fixed number, by asking clinic owners 10 to 15 questions. Pratham Singh countered by comparing the intended mechanism to Zillow's real estate estimation model, explaining that Zillow predicts valuation ranges upfront using publicly available data without requiring initial user questions (00:12:10). Pratham Singh stated that the platform will utilize public data from government websites, such as Medicare, to pre-emptively estimate and display a valuation range for listed and unlisted clinics based on regional factors, patient panels, and patient types (00:12:59). For unlisted clinics, a notice will indicate the owner has not explicitly put the clinic up for sale. To address cases where data is missing or a clinic owner is dissatisfied with the automated estimate due to omitted figures like EBITDA or employee counts, the owner can input supplemental details to receive a precise re-evaluation (00:14:08).
+• Current Clinic Inventory and Specialization Constraints: Pratham Singh shared that Roots Health currently owns 8 to 9 clinics and is negotiating acquisitions with 11 additional clinics (00:15:03). These operations are strictly limited to Texas and California. Pratham Singh highlighted a current operational constraint, explaining that their existing data and clinics are specialized exclusively in pediatrics and family practice. While the long-term vision for the marketplace requires expanding across all medical specialties and US states, they will initiate the platform using only their current specialized dataset (00:15:56).
+• AI Agent Stack and Long-Term Platform Vision: Pratham Singh detailed that the company is building an AI model stack termed the "agent stack" via OwnCura. The strategic roadmap involves deploying and proving the viability of this thesis within their own clinics first, before selling the AI agent stack as a standalone product to external independent clinics through OwnCura. Pratham Singh emphasized that OwnCura is designed to serve as the primary foundational channel linking independent MSOs with the broader United States healthcare market (00:16:55).
+• Minimum Viable Product (MVP) Personas and Customer Journey: Jeshwanth Shiva Sai defined five distinct user personas for the Minimum Viable Product (MVP), which include doctors, nurses, clinic assistants, buyers, and sellers (00:16:55). Due to privacy constraints in healthcare, buyers will not browse clinics like a traditional e-commerce shopping site. Instead, they will receive curated emails listing available practices, such as the six current practices located in Texas and California (00:18:02). Jeshwanth Shiva Sai mapped out the MVP user journey, where a customer arrives, views an automated evaluation range, updates data for a re-evaluation if necessary, and then selects a growth track. The available tracks include growing independently, receiving operational assistance from the platform, pursuing a direct acquisition by Roots Health, or meeting partner MSOs to collaborate. Private sellers and buyers will then negotiate the final steps. Pratham Singh agreed that this plan aligns with their vision, noting that the development of the marketplace is an iterative process driven by analyzing website traction data (00:18:51).
+• Future Educational and Recruitment Features: Pratham Singh introduced a long-term feature expansion inspired by an acquisition discussion with an independent physician. The doctor noted that they spend their free time teaching and mentoring medical students (such as MBBS or MD candidates) within their clinics. Pratham Singh proposed expanding the marketplace to allow medical students to connect with established doctors for practical training. Furthermore, this system will facilitate recruitment, allowing expanding clinics or retiring physicians to find independent physicians to take over their practices (00:21:24). Pratham Singh clarified that these hiring and educational features will be deferred to later iterations, as the immediate priority remains the valuation engine and establishing the buyer-side partnerships (00:22:39).
+• Platform Product Naming Conventions: Jeshwanth Shiva Sai requested clarification regarding the multiple names used across documentation, including Casil, OwnCura, Roots Health, and Independence OS. Pratham Singh confirmed that the marketplace product is officially named OwnCura (00:25:46). They explained that "Casil" (Castle) was a temporary conceptual name originating from a startup branding suggestion where every internal product was named after a chess piece, pointing out that another product is named "Bishop" (00:26:55). The name Casil has since been completely replaced by OwnCura (00:25:46).
+• AI Deployment Timelines and Corporate Practice of Medicine Compliance: Pratham Singh announced that the internal deployment of the AI tools within the 9 clinics owned by Roots Health is scheduled to begin on November 15th (00:26:55). They reiterated that Roots Health acts as an MSO that buys clinic stock and manages them using internal products and strategies (00:27:50). Jeshwanth Shiva Sai raised a query regarding compliance with the Corporate Practice of Medicine (CPOM) doctrine, noting their research indicates that non-physicians, commercial corporations, and private equity firms are legally prohibited from practicing medicine. Pratham Singh resolved this compliance question by clarifying that the legal owner of Roots Health is Ravi&rsquo;s wife, who is a licensed medical practitioner, thereby satisfying CPOM legal requirements (00:28:52).
+• Go-To-Market (GTM) Strategy and Private Equity Model: Jeshwanth Shiva Sai outlined a Go-To-Market (GTM) strategy focused on weekly feature experimentation, sending outbound emails to 20 or 30 clinic brokers each week, and posting organic content on LinkedIn detailing the financial aspects of clinic ownership. This approach aims to drive visitors to book calls without relying on paid advertising (00:24:45). Pratham Singh approved of the LinkedIn and emailing tactics but advised against focusing exclusively on traditional clinic brokers, as OwnCura is designed as a comprehensive growth platform rather than a standard brokerage (00:25:46). Pratham Singh explained that the ultimate goal is for the marketplace to function similarly to a Private Equity (PE) firm (00:29:58). The platform will facilitate the acquisition of a large volume of clinics, deploy verified AI agent stacks across them to maximize profits, and present these visible metrics to future institutional investors, comparing their intended structure to Blackstone's operation with BlackRock as an investor (00:31:05).
+• Next Steps and Scheduling: Pratham Singh requested that Jeshwanth Shiva Sai visualize the proposed MVP concepts into designs or PDFs so they can review a clear picture together before presenting the prototype to Ravi. Pratham Singh noted that they and another team member are concurrently developing the algorithmic backend of the valuation engine (00:23:41) (00:32:11). They promised to share an internal document tracking the historical evolution from the "Open Door" concept to OwnCura to provide extra written context (00:24:45). Jeshwanth Shiva Sai stated they could not meet over the upcoming weekend due to a high volume of client delivery deadlines and meetings, but committed to reviewing their calendar and informing Pratham Singh of their availability as soon as possible (00:32:11).
+You should review Gemini's notes to make sure they're accurate. Get tips and learn how Gemini takes notes
+How is the quality of these specific notes? Take a short survey to let us know your feedback, including how helpful the notes were for your needs.
+&#128214; Transcript
+Sep 2, 2026
+Meeting Sep 2, 2026 at 11:30 IST - Transcript
+00:08:56
+Pratham Singh: Hello.
+Jeshwanth Shiva Sai: Fiber.
+Pratham Singh: Hi Shant, how are you?
+Jeshwanth Shiva Sai: I'm good. How are you
+Pratham Singh: I'm doing good as well. Uh sorry actually I was uh going
+Jeshwanth Shiva Sai: doing?
+Pratham Singh: to a meeting right now. So that's why I'm in a car and I'm joining the meeting.
+Jeshwanth Shiva Sai: Okay. So, uh should we continue or uh uh you
+Pratham Singh: Yeah, we should we should we should sure.
+Jeshwanth Shiva Sai: told you mentioned that Ravi will be joined Ravi son.
+Pratham Singh: So Ravi uh is in Houston right now and it might be a B right now. It would be 1 1:00 a.m. or it would be 12 12 a.m. right now over there. Yeah. 12.
+Jeshwanth Shiva Sai: Is it fine then? Um,
+Pratham Singh: Yeah, it's fine. It's fine. You can continue.
+Jeshwanth Shiva Sai: yeah. I'll just share my screen. Okay.
+Pratham Singh: Yeah,
+Jeshwanth Shiva Sai: Uh so over the week like uh I've
+00:09:58
+Pratham Singh: sure.
+Jeshwanth Shiva Sai: jotted down some points like uh what what are the financial agendas and what does casual do and what other things and what I have understood from the document also I have included.
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: Um so what I have understood from the document is we are helping doctors or clinics like the independent practices in the US grow their business.
+Pratham Singh: Yeah. Yeah.
+Jeshwanth Shiva Sai: So and uh selling is one one among the options that we
+Pratham Singh: Uh
+Jeshwanth Shiva Sai: are giving them right.
+Pratham Singh: selling and buying both.
+Jeshwanth Shiva Sai: Yeah. Yeah. Selling or buying. Yeah.
+Pratham Singh: Uh
+Jeshwanth Shiva Sai: So roots health is our parent company sister company.
+Pratham Singh: yeah. Yeah.
+Jeshwanth Shiva Sai: So we are
+Pratham Singh: So root health roots health is a basically kind of an MSO uh which uh
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: looks into the operations of uh we acquire clinics and we looks into the administration and basically uh operation side and we uh see how we can uh increase the bit of a particular clinic.
+00:11:11
+Jeshwanth Shiva Sai: Yeah. So we will be running they might uh they might they run their own
+Pratham Singh: So
+Jeshwanth Shiva Sai: clinics or they might ask us uh for help right uh and yes
+Pratham Singh: Yeah, there could be there could be options like it could be like key uh so uh just to mention we are planning not to just have roots health as a particular buyer over there. So we'll be partnering with other MSOs like roots health or like competitors of root health
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: uh in Texas and California.
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: So they will be having we so creating a marketplace is moreover like you need to have a buyer first like if there is no buyer there's no point of uh creating the marketplace so so what we have planned is to
+Jeshwanth Shiva Sai: like this. Yes.
+Pratham Singh: bring more number of MSOs not just talking with the root cell which is our own company so we'll be bringing partnering with uh other MSOs as well so that it's on
+Jeshwanth Shiva Sai: Yeah.
+00:12:10
+Jeshwanth Shiva Sai: So I just considered root health here as an example.
+Pratham Singh: our okay
+Jeshwanth Shiva Sai: That's it. Uh so so what are we building now is very important.
+Pratham Singh: okay
+Jeshwanth Shiva Sai: So uh so we are we should we need to understand the clinics worth like uh we have to get a price price range not a fixed number.
+Pratham Singh: yeah
+Jeshwanth Shiva Sai: uh we will be getting a price range by asking him like a couple of questions like around 10 to 15
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: questions so that we can uh we can understand what's the clinic
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: worth and
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: then
+Pratham Singh: So it's may there's a catch right now. Uh if you going to see Zillow and if you study about Zillow,
+Jeshwanth Shiva Sai: is.
+Pratham Singh: so they created a estimate which was basically based upon they didn't ask any questions uh up front like they directly predicted their range on the basis of uh some of the
+Jeshwanth Shiva Sai: Mhm.
+Pratham Singh: datas which were available.
+00:12:59
+Pratham Singh: So Zillow is basically for uh house house
+Jeshwanth Shiva Sai: Yes. Yes,
+Pratham Singh: housings.
+Jeshwanth Shiva Sai: I know. Zillow. Yes, I have it.
+Pratham Singh: So they they did this and so the similar way we are planning to do that. Uh let me uh show you just another one.
+Jeshwanth Shiva Sai: But we need data right for that. Uh aa acha.
+Pratham Singh: Of course we need so some of the datas are available uh from the government websites uh like medical and
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: med like we won't be getting the exact valuation of the
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: uh clinic like but we can get get a range of that clinic so that uh so our plan is to just when whenever a person is
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: coming uh let's say a buyer or let's say anybody who is coming to our marketplace he's going to see the uh either the listed the val valuation
+Jeshwanth Shiva Sai: valuation, right?
+Pratham Singh: engine would be there like they can value their uh clinic but by entering how zilo works like by entering the zip code you can get an really lot of uh houses and it will show uh prehandedly it will show that this is the this
+00:14:08
+Jeshwanth Shiva Sai: It's
+Pratham Singh: is this is the worth of this clinic this is the worth of this uh clinic so we can show pre
+Jeshwanth Shiva Sai: 11:45.
+Pratham Singh: preumption like some of the factors which we And also we can mention there key this clinic is not for sale right now or they have the owner has not listed here. We have assumed that this is the uh basically worth of or valuation of this clinic or this area particularly has since this number of patient panel and this number of let's say uh kind of patients. So that's why the uh amount is the valuation is pretty high than other other areas. So that's what my plan is to
+Jeshwanth Shiva Sai: Okay. But uh if just in case you know there there might be some clinics which do not have data.
+Pratham Singh: do.
+Jeshwanth Shiva Sai: So uh so for that case uh we might ask questions. Is it fine?
+Pratham Singh: Huh? We we of course we are going to ask questions.
+Jeshwanth Shiva Sai: Yeah. Yeah.
+00:15:03
+Pratham Singh: Let's say uh if a clinic owner is coming to a Right. And he sees key uh there's already a valuation which is on the basis of data which we have but he's not happy with the valuation because uh there are some other factors like AITA
+Jeshwanth Shiva Sai: Mhm.
+Pratham Singh: is not given and number of uh employees he has not given.
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: So we'll be add he can add that that uh to get a like u what do we call that accurate uh accurate more accurate or precise valuation he can add more uh data to it basically.
+Jeshwanth Shiva Sai: Yeah, we can reevaluate his clinic again.
+Pratham Singh: Huh. Uhhuh. Yeah.
+Jeshwanth Shiva Sai: So uh the next one is uh you know we need to explore selling as well
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: like because uh the from the roots help health health perspective uh we we do we have like how many clinics I'm not aware like how many clinics do we
+Pratham Singh: So right now we have around eight uh 8 to nine clinics we have and
+00:15:56
+Jeshwanth Shiva Sai: have
+Pratham Singh: we are currently uh in talk with 11 more clinics
+Jeshwanth Shiva Sai: okay okay So
+Pratham Singh: h and though they are in only Texas and California no not
+Jeshwanth Shiva Sai: okay so not in other states yet.
+Pratham Singh: in other states. So we what so on also we are planning to start with some like we can't go in uh
+Jeshwanth Shiva Sai: Wow.
+Pratham Singh: all the states because and also uh one more thing that we are currently specialized in pediatrics okay so we have clinics which are which are
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: family practice or pediatric clinic that kind of clinics we have we don't have other specialities so right now we will be starting with this only like what all data we have but of course we have to uh in a broader terms if I would Say since we are creating it as a marketplace we have to cover all the
+Jeshwanth Shiva Sai: Sure.
+Pratham Singh: specialities specialities and uh basically other other states as well but we'll do that
+Jeshwanth Shiva Sai: Yeah. So right now we will be uh quietly explore this selling and buying concept with
+00:16:55
+Pratham Singh: like
+Jeshwanth Shiva Sai: respect to our current clinics which we acquired. Right.
+Pratham Singh: not the current clinics like we want to acquire more number of clinics see okay and uh we are building the agent stack as well you know the AI models which we are building so through own
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: cura we are planning key uh so that it becomes a marketplace
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: and after some time let's say uh when we have a uh we have we are ready with the agent tag we have proved the thesis so we'll through the through onq in
+Jeshwanth Shiva Sai: Mhm.
+Pratham Singh: onura only we'll be selling our agent stack to other clinics
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: so this is the plan and basically uh uh onura would
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: uh like the ma like the main channel for anything between independence OS and uh other US healthcare market. It's a really big big platform for us if I would
+Jeshwanth Shiva Sai: So the user personas have taken are like doctors,
+Pratham Singh: say.
+00:18:02
+Jeshwanth Shiva Sai: nurses, assistants of them and buyers and sellers. Five.
+Pratham Singh: Mm.
+Jeshwanth Shiva Sai: user personals have considered then for the MVP so buyers don't get to browse
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: clinics like you know shopping sites because of privacy uh it's what I considered and uh they uh they get a curated email from us like let's say we have
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: like six practices in Texas and California uh so we are exploring for the next
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: steps you know the bulk like we'll uh we'll put an email uh we have like these clinics you can uh look into them to
+Pratham Singh: like you are saying cold emailing will do for marketing and marketing the like the clinics and all
+Jeshwanth Shiva Sai: buy kind of.
+Pratham Singh: that stuff.
+Jeshwanth Shiva Sai: Yes. Yeah.
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: Huh. Yeah. That that's what the plan our plan is also.
+Jeshwanth Shiva Sai: because uh we can't go to you know directly to someone right so we we need to put a email
+00:18:51
+Pratham Singh: H
+Jeshwanth Shiva Sai: so that they can understand what we are doing and uh so what uh kind of clinics are there how many people are there on the marketplace right so so the steps will be for the MVP uh he will arrive the customer will arrive and probably you know get some questions or you know we'll reevaluate based on his
+Pratham Singh: H.
+Jeshwanth Shiva Sai: already as we as we discussed earlier and then he gets a price range around a price range then uh he can pick a plan where he he wants to grow on his own or he wants help for running the clinic with us or you know roots health can acquire or buy it directly or he wants to meet any partners to uh
+Pratham Singh: Mhm. Huh.
+Jeshwanth Shiva Sai: collaborate and run And uh for the last point uh
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: we will be talking to buyers like private private sellers right like that is what I thought uh is this fine for the MVP like uh
+Pratham Singh: Yeah, see it's uh let me tell you it's an iterative process.
+00:20:10
+Pratham Singh: Okay. Uh we have to see what what is bringing traction to our website what is not.
+Jeshwanth Shiva Sai: yeshm
+Pratham Singh: So it's totally iterative. We are I am I I it could be possible that you what you have you are pitching in and what I feel like is is somewhat what I am also planning to do but just few points we have to change but I guess uh you work on this MVP caller thing h I was I
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: was thinking that you will be uh bringing some uh like you will bring some created MVP or let's say website palacy I thought
+Jeshwanth Shiva Sai: actually uh I was occupied with some work and on-site work with clients. So that was that's why I couldn't uh make
+Pratham Singh: Okay. Okay.
+Jeshwanth Shiva Sai: anything
+Pratham Singh: I will share you one more dog which was basically earlier what we were planning to do and the vision is same. Basically the open door which was earlier it is it was called own. So see u let me tell you uh these personas which you have mentioned is right okay other than these personas see we are planning this marketplace to be overall health health uh overall coordinator for each and everything for healthcare basically in healthcare.
+00:21:24
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: So I was talking to one like I was talking with one of the acquisitions we were doing. I was talking to the doctor. So he mentioned me that um basically uh in the meantime or when he's free generally he helps or teaches the students the independent who are like who are studying this MBBS or let's say MD or something. So he helps them practice in his own clinics. helps them uh teach them how to practice and other things so that uh whatever what not. Okay. So my plan was basically when they graduate they are got get hired by somebody. Okay.
+Jeshwanth Shiva Sai: Yes. Yes.
+Pratham Singh: But the thing is similar way how in general ways other people are like they also want to be independent
+Jeshwanth Shiva Sai: Here
+Pratham Singh: they want to start their own clinic they want to uh don't want to work for any particular
+Jeshwanth Shiva Sai: I am.
+Pratham Singh: firm or let's say something. So what we were planning was key we will create an this marketplace to be for uh that uh students as well so that they can connect with the doctors they can practice there over there in the meantime whenever they are free they can connect with them and also they will be hiring and
+00:22:39
+Pratham Singh: uh like hiring and all that processes over there kind of hiring not properly hiring let's say if we somebody needs let's say some clinic is coming to our platform to see if there is some independent physician which we need for our clinic because we are uh expanding or let's say any of the thing or the main physician is retiring so he wants key somebody else to come uh over his place and like start working so this is also what we want to own to do but of course not everything could be done at at the same time but I'm telling you
+Jeshwanth Shiva Sai: Okay. Yes. Yes.
+Pratham Singh: what's the reason so right Now you go what you have what you have put it
+Jeshwanth Shiva Sai: Yes.
+Pratham Singh: down. Let's um see what you what valution engine because the main part is the valution engine how it will work. Okay. Valution engine and uh the partnership of course we are going to do the buyer side. I will do I'm connecting with some of the people regarding onura.
+00:23:41
+Pratham Singh: So right now since it's an ideation page they also ask what is the MVP? Can you show that how it will work and all that stuff. So yeah we need to create that as well. So my point is here is key uh the idea which you are pitching in just uh let's visualize that first and then we can continue over it I guess.
+Jeshwanth Shiva Sai: Even last time you mentioned because uh just don't think cover. any screens right now uh just uh think just let me know like what are your thoughts on this so that's why I drafted immediately uh yesterday
+Pratham Singh: Yeah, I I got your point like I thought uh you will bring some like p like created PDFs or
+Jeshwanth Shiva Sai: Right.
+Pratham Singh: designs. Uh I thought that in that it's fine. It's fine if you if you were busy with some things. uh I guess we can have one more meeting and we can uh do that and but the idea which you are pitching in I guess uh it is moreover good enough to start and basically the main part is the valution engine which is I am also working on and my one more uh person is working on valution engine as well.
+00:24:45
+Pratham Singh: Okay. So I will share you one more doc on uh basically which was the idea of what was
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: how it started the open door or on cura which is changed to on so you can
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: get a more idea or let's say more written towards that
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: it
+Jeshwanth Shiva Sai: So, yeah. Um I have also you know thought of the GTM strategy also.
+Pratham Singh: mhm
+Jeshwanth Shiva Sai: Uh like uh just like the previous one we need to like email every week we need to experiment with
+Pratham Singh: Uh-huh.
+Jeshwanth Shiva Sai: like one feature at least and probably email like 20 to 30 clinic
+Pratham Singh: Uhhuh.
+Jeshwanth Shiva Sai: brokers. And the second point would be uh post on LinkedIn about you
+Pratham Singh: Uhhuh.
+Jeshwanth Shiva Sai: know this the money side of owning clinics because uh most people might not understand because of the the profession uh and then uh until we know what percentage of percentage of visitors we are you know actually getting so that they can book a call and uh because we don't have to pay for ads in that in that
+00:25:46
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: sense. So that's uh how I thought uh by emailing and
+Pratham Singh: Makes sense. Makes sense. Totally makes sense.
+Jeshwanth Shiva Sai: LinkedIn.
+Pratham Singh: But uh just emailing brokers, I don't think so. Makes sense. uh like brokers because see we are not becoming a one more broker side.
+Jeshwanth Shiva Sai: Yes. Yes.
+Pratham Singh: It is it is more of a uh like growth platform for
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: each and everything.
+Jeshwanth Shiva Sai: So yeah, I also have a few questions uh uh where
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: uh like we have like different names like casil, own cura,
+Pratham Singh: Own
+Jeshwanth Shiva Sai: root cell like independence OS like which name are we go going with for the
+Pratham Singh: cura for this market for this marketplace we are uh this is this name is
+Jeshwanth Shiva Sai: own?
+Pratham Singh: own cura
+Jeshwanth Shiva Sai: Okay. Okay.
+Pratham Singh: h
+Jeshwanth Shiva Sai: So for casle then uh how about casle?
+Pratham Singh: castle is not a name basically it was uh uh it was not
+00:26:55
+Jeshwanth Shiva Sai: Okay. It's a concept.
+Pratham Singh: conceptual as well so basically We were planning uh when we see we have we are a startup only. So at that time somebody suggested that what should we do is that each and every product which we are building right now we should have their name on the uh chess uh the on on chess basically. So we have one one one product is bishop.
+Jeshwanth Shiva Sai: Mhm.
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: So he said key we should have this as castle.
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: So but yeah we have changed it.
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: We have changed it.
+Jeshwanth Shiva Sai: Mhm. Okay. So, um also like when the AI tools will run in our own clinics, do we have get it
+Pratham Singh: So right now we are planning to do that uh by November
+Jeshwanth Shiva Sai: right?
+Pratham Singh: 15th because November 15th is what we have thought of
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: to start with in a first in our own clinics to deploy in our own clinics
+00:27:50
+Jeshwanth Shiva Sai: in roots health and the several other clinics nine clinics which you
+Pratham Singh: then yeah
+Jeshwanth Shiva Sai: mentioned.
+Pratham Singh: root the clinics which I'm seeing here are under root health only.
+Jeshwanth Shiva Sai: Okay. Okay. Okay.
+Pratham Singh: So root health is basically what root health would do is root health is a mso. Uh if you could just uh see after the meeting just see what does uh msos and com do cpom think you'll get an idea. So generally uh acquires the clinics and uh it takes whole the whole like we take all the stocks of a particular clinic and we run by the by our own uh let's say by our own strategies and buy our own products and all that stuff. So that's what we are planning to do with the independent service also which we are building stacks will uh uh root health is going to buy the clinics and then we are going to implement the uh deploy the agent stack over the particular clinics which you have
+Jeshwanth Shiva Sai: Okay.
+00:28:52
+Pratham Singh: acquired.
+Jeshwanth Shiva Sai: Uh so like you mentioned CPOM, right? The corporate practice of medicine. Uh so uh I've researched into it.
+Pratham Singh: Mhm.
+Jeshwanth Shiva Sai: So it says like non- physicians and commercial corporations and private equities cannot practice
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: medical thing medical practice
+Pratham Singh: Yeah. So, basically the owner of our uh root health is
+Jeshwanth Shiva Sai: righth
+Pratham Singh: basically Ravi's wife uh and she's a doctor. So, basically
+Jeshwanth Shiva Sai: okay okayh it's running okay got it got so it's their clinic and they are They are the practice medical practitioners.
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: So it is possible to run. Yeah. Got it.
+Pratham Singh: So
+Jeshwanth Shiva Sai: Got it. Pratam said is like is there anything to discuss on uh
+Pratham Singh: I don't think so.
+Jeshwanth Shiva Sai: uh
+Pratham Singh: Uh moreover what Ravi also wants and I also think is that uh the valuation Indian vala thing which I mentioned you earlier as well just like how zilo did.
+00:29:58
+Pratham Singh: So that is the main thing which we are focusing on. And then comes the uh like what will the buyer We going to see what what will be the seller going to see and uh then comes
+Jeshwanth Shiva Sai: There you go.
+Pratham Singh: uh listings listings are a part like like or not all the clinics which we have valuated will be a listing it will depend upon the owner that he wants to list on that valuation or not and he wants to list on our platform or not that totally depends upon the owner of the clinic. Okay. So that's what the main thing is and uh other thing which I mentioned about the students and all that stuff. So that will do uh as we iterate and basically add features to
+Jeshwanth Shiva Sai: later.
+Pratham Singh: it.
+Jeshwanth Shiva Sai: I can put it.
+Pratham Singh: So it's it's totally an iterative process like we have to see what is working, what is not.
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: But I guess it will uh the plan is basically to uh bring this marketplace or build this marketplace in such a way that it is a like we will be like a PE.
+00:31:05
+Pratham Singh: We will be working like a PE. We'll be acquiring more number of clinics from our platform and uh
+Jeshwanth Shiva Sai: Mhm.
+Pratham Singh: uh from our platform also and we will be having more number of buyers and sellers on our platform and uh let's say we have 100 clinics uh 2 years or one year down the line and uh we put our agent stacks uh over there after proving them in our uh few clinics which we have right now and uh what the profit which we make or whatever we make uh is visible to uh
+Jeshwanth Shiva Sai: The future uh
+Pratham Singh: the let's say the yeah for future investor so we'll
+Jeshwanth Shiva Sai: investors
+Pratham Singh: like we'll be working like a P market and then like let's say we take like Blackstone is a PE works like a P market and Black Rockck is an investor so basically they invest uh in Blackstone and Blackstone uh invests in whatever the investment they have so that's what we are working on to So the plan is to do.
+Jeshwanth Shiva Sai: Got it.
+00:32:11
+Jeshwanth Shiva Sai: Got it.
+Pratham Singh: Okay. So when can we have the next meet so that I also have a clear picture, you also have a clear picture and then we can start uh working on together. Uh we can present it to Ravi as well. Sure.
+Jeshwanth Shiva Sai: I'll have to actually look at my calendar because there are a lot of meetings this weekend. Uh we have client deliveries.
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Uh so uh it might not be possible this weekend though. Uh but uh I'll I'll just uh let you know uh after looking at my calendar.
+Pratham Singh: Yeah.
+Jeshwanth Shiva Sai: Okay.
+Pratham Singh: Just let me know as soon as possible. Okay.
+Jeshwanth Shiva Sai: Yeah. Yeah. Sure.
+Pratham Singh: Sure. Okay. Nice work like uh really like the what uh you have gone through and what you have
+Jeshwanth Shiva Sai: Yeah.
+Pratham Singh: made. Okay,
+Jeshwanth Shiva Sai: Just just All
+Pratham Singh: let's see uh let's see when visualize it first and then move forward.
+Jeshwanth Shiva Sai: welcome. Yeah.
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Thanks.
+Pratham Singh: Okay.
+Jeshwanth Shiva Sai: Bye.
+Pratham Singh: Bye-bye.
+Transcription ended after 00:33:23
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.

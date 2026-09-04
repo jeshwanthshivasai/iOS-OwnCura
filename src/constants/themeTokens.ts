@@ -1,0 +1,60 @@
+export const AppTheme = {
+  light: {
+    bg: '#F2F2F7',
+    card: '#FFFFFF',
+    sheet: '#F2F2F7',
+    label: '#000000',
+    sec: 'rgba(60,60,67,0.6)',
+    ter: 'rgba(60,60,67,0.35)',
+    sep: 'rgba(60,60,67,0.18)',
+    nav: 'rgba(249,249,249,0.92)',
+    navSep: 'rgba(60,60,67,0.22)',
+    tint: '#0F7A57',
+    tintMuted: 'rgba(15,122,87,0.12)',
+    fill: 'rgba(120,120,128,0.15)',
+    press: 'rgba(120,120,128,0.1)',
+    segBg: 'rgba(120,120,128,0.12)',
+    segOn: '#FFFFFF',
+    grabber: 'rgba(60,60,67,0.3)',
+    avatarBg: '#D7E5DE',
+    avatarInk: '#0F7A57',
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 1.5 },
+      shadowOpacity: 0.06,
+      shadowRadius: 6,
+      elevation: 2
+    },
+    toastBg: 'rgba(28,28,30,0.95)',
+    toastInk: '#FFFFFF'
+  },
+  dark: {
+    bg: '#000000',
+    card: '#1C1C1E',
+    sheet: '#121214',
+    label: '#FFFFFF',
+    sec: 'rgba(235,235,245,0.6)',
+    ter: 'rgba(235,235,245,0.3)',
+    sep: 'rgba(84,84,88,0.5)',
+    nav: 'rgba(28,28,30,0.9)',
+    navSep: 'rgba(84,84,88,0.55)',
+    tint: '#37C98E',
+    tintMuted: 'rgba(55,201,142,0.15)',
+    fill: 'rgba(120,120,128,0.3)',
+    press: 'rgba(120,120,128,0.22)',
+    segBg: 'rgba(120,120,128,0.24)',
+    segOn: '#636366',
+    grabber: 'rgba(235,235,245,0.3)',
+    avatarBg: '#1E4C3C',
+    avatarInk: '#37C98E',
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0,
+      shadowRadius: 0,
+      elevation: 0
+    },
+    toastBg: 'rgba(242,242,247,0.95)',
+    toastInk: '#000000'
+  }
+};
