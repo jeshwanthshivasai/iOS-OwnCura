@@ -11,6 +11,7 @@ import {
   baselineValuation,
   money
 } from './owncuraData';
+import { trackEvent } from './analytics';
 
 export type RoleType = 'owner' | 'team' | 'acquirer';
 export type ActiveTabType = 'home' | 'deals' | 'inbox' | 'portfolio' | 'clinicops' | 'digest' | 'practice';
@@ -82,6 +83,7 @@ export const OwnCuraProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setRoleState(newRole);
     setStack([]);
     setSheet(null);
+    trackEvent('switch_role', { role: newRole });
     if (newRole === 'owner') setActiveTabState('home');
     else if (newRole === 'team') setActiveTabState('portfolio');
     else if (newRole === 'acquirer') setActiveTabState('digest');
@@ -91,18 +93,23 @@ export const OwnCuraProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setActiveTabState(tab);
     setStack([]);
     setSheet(null);
+    trackEvent('change_tab', { tab });
   };
 
   const pushScreen = (s: string) => {
     setSheet(null);
     setStack(prev => [...prev, s]);
+    trackEvent('view_screen', { screen: s });
   };
 
   const popScreen = () => {
     setStack(prev => prev.slice(0, -1));
   };
 
-  const openSheet = (s: SheetType) => setSheet(s);
+  const openSheet = (s: SheetType) => {
+    setSheet(s);
+    if (s) trackEvent('open_sheet', { sheet: s });
+  };
   const closeSheet = () => setSheet(null);
 
   const showToast = (msg: string) => {
@@ -114,14 +121,17 @@ export const OwnCuraProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const updateInput = (key: keyof ValuationInputs, val: string | number) => {
     setInputs(prev => ({ ...prev, [key]: val }));
+    trackEvent('refine_input', { field: key, value: String(val) });
   };
 
   const resetInputs = () => {
     setInputs({ ebitda: '', providers: '', panel: '', commercial: 62, visits: 42 });
+    trackEvent('reset_inputs');
   };
 
   const approveCounterparty = (id: string) => {
     setApprovedCounterparties(prev => (prev.includes(id) ? prev : [...prev, id]));
+    trackEvent('approve_counterparty', { counterparty_id: id });
   };
 
   const myPractice = OC_CLINICS.find(c => c.status === 'mine') || OC_CLINICS[0];
